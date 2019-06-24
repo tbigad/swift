@@ -2,7 +2,7 @@
 //  AppDelegate.swift
 //  Note
 //
-//  Created by Pavel N on 6/23/19.
+//  Created by Pavel N on 6/24/19.
 //  Copyright © 2019 Pavel N. All rights reserved.
 //
 
