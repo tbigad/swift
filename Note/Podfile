@@ -7,7 +7,6 @@ target 'Note' do
 
   # Pods for Note
   pod 'CocoaLumberjack/Swift', '~> 3.5.3'
-  pod "AFNetworking", "~> 2.0"
 
   target 'NoteTests' do
     inherit! :search_paths
