@@ -10,6 +10,8 @@
 		8DD3CC27A8485AD6E2DE363E /* Pods_NoteTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F92FFC88CA2B864C7A77348A /* Pods_NoteTests.framework */; };
 		956EB7C698EC872487E681AD /* Pods_Note.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 07A966EFC5856D170907139E /* Pods_Note.framework */; };
 		C0586F4AEE353244B5D3C1A5 /* Pods_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D770BCCC270E435645DB9 /* Pods_NoteUITests.framework */; };
+		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
+		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
 		F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */; };
 		F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CF22C12ECF00286D3E /* ViewController.swift */; };
 		F3BEE8D322C12ECF00286D3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D122C12ECF00286D3E /* Main.storyboard */; };
@@ -48,6 +50,8 @@
 		CD6FAA36C521DC5DB0414EF8 /* Pods-Note.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.release.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.release.xcconfig"; sourceTree = "<group>"; };
 		DDA1FE7F89CED5C0BA3B5D2C /* Pods-NoteUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NoteUITests.debug.xcconfig"; path = "Target Support Files/Pods-NoteUITests/Pods-NoteUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		E25ED3EA8964A9ED415A00CE /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
+		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
+		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		F3BEE8CA22C12ECF00286D3E /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BEE8CF22C12ECF00286D3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -118,6 +122,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		F328FF1F22D4D3EC00A349A0 /* ui */ = {
+			isa = PBXGroup;
+			children = (
+				F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */,
+				F328FF2222D4F7E000A349A0 /* ColorPicker.swift */,
+			);
+			path = ui;
+			sourceTree = "<group>";
+		};
 		F3BEE8C122C12ECF00286D3E = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +156,7 @@
 		F3BEE8CC22C12ECF00286D3E /* Note */ = {
 			isa = PBXGroup;
 			children = (
+				F328FF1F22D4D3EC00A349A0 /* ui */,
 				F3BEE8FB22C12EDB00286D3E /* Models */,
 				F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */,
 				F3BEE8CF22C12ECF00286D3E /* ViewController.swift */,
@@ -409,6 +423,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				F3BEE90122C12EFC00286D3E /* FileNotebook.swift in Sources */,
+				F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */,
+				F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */,
 				F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */,
 				F3BEE90022C12EFC00286D3E /* NoteExtensions.swift in Sources */,
 				F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */,
