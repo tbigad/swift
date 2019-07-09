@@ -10,11 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var dataPicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
 
 
+    @IBAction func switchPressed(_ sender: UISwitch) {
+        dataPicker.isHidden = sender.isOn
+    }
 }
 
