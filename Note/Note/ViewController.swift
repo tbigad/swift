@@ -10,9 +10,31 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var colorButtonsStack: UIStackView!
+    @IBOutlet var customColorBtn: SelectColorButton!
+    var selectedColor: UIColor = .white {
+        willSet {
+            var findPreset:Bool = false
+            for veiw in colorButtonsStack.arrangedSubviews {
+                let btn:SelectColorButton? = veiw as? SelectColorButton
+                if((btn) != nil) {
+                    if btn?.presetColor == newValue {
+                        btn?.isSelect = true
+                        findPreset = true
+                    } else {
+                        btn?.isSelect = false
+                    }
+                }
+                if !findPreset{
+                    customColorBtn.isSelect = true
+                }
+            }
+        }
+    }
     @IBOutlet var dataPicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
+        selectedColor = .white
         // Do any additional setup after loading the view.
     }
 
@@ -20,5 +42,27 @@ class ViewController: UIViewController {
     @IBAction func switchPressed(_ sender: UISwitch) {
         dataPicker.isHidden = sender.isOn
     }
+    @IBAction func CustomColourPressed(_ sender: UIButton) {
+        performSegue(withIdentifier: "goToCustomColor", sender: self)
+    }
+    
+    @IBAction func unwindFromPicker(_ sender: UIStoryboardSegue) {
+        
+    }
+    
+    @IBAction func colorBtnPressed(_ sender: SelectColorButton) {
+        print(sender.presetColor)
+        selectedColor = sender.presetColor
+    }
+    @IBAction func colorRedBtnPressed(_ sender: SelectColorButton) {
+        colorBtnPressed(sender)
+    }
+    @IBAction func colorBlueBtnPressed(_ sender: SelectColorButton) {
+        colorBtnPressed(sender)
+    }
+    @IBAction func colorYellowBtnPreset(_ sender: SelectColorButton) {
+        colorBtnPressed(sender)
+    }
+    
 }
 

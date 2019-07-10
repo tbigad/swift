@@ -12,6 +12,7 @@
 		C0586F4AEE353244B5D3C1A5 /* Pods_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D770BCCC270E435645DB9 /* Pods_NoteUITests.framework */; };
 		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
 		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
+		F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */; };
 		F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */; };
 		F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CF22C12ECF00286D3E /* ViewController.swift */; };
 		F3BEE8D322C12ECF00286D3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D122C12ECF00286D3E /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		E25ED3EA8964A9ED415A00CE /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
 		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
 		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		F3BEE8CA22C12ECF00286D3E /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BEE8CF22C12ECF00286D3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -160,6 +162,7 @@
 				F3BEE8FB22C12EDB00286D3E /* Models */,
 				F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */,
 				F3BEE8CF22C12ECF00286D3E /* ViewController.swift */,
+				F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */,
 				F3BEE8D122C12ECF00286D3E /* Main.storyboard */,
 				F3BEE8D422C12ED100286D3E /* Assets.xcassets */,
 				F3BEE8D622C12ED100286D3E /* LaunchScreen.storyboard */,
@@ -428,6 +431,7 @@
 				F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */,
 				F3BEE90022C12EFC00286D3E /* NoteExtensions.swift in Sources */,
 				F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */,
+				F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */,
 				F3BEE8FF22C12EFC00286D3E /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
