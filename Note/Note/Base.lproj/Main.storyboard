@@ -135,7 +135,6 @@
                                                                 </userDefinedRuntimeAttributes>
                                                                 <connections>
                                                                     <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="10b-Ai-Sgb"/>
-                                                                    <action selector="colorYellowBtnPreset:" destination="BYZ-38-t0r" eventType="touchDown" id="PPz-ln-rKh"/>
                                                                 </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-GV-IM7" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
@@ -203,17 +202,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-Db-max">
-                                <rect key="frame" x="8" y="52" width="135" height="30"/>
-                                <state key="normal" title="Cancel"/>
-                                <connections>
-                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="eGy-GC-vRL"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlp-eo-Gc5">
                                 <rect key="frame" x="271" y="52" width="135" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <state key="highlighted" title="Done"/>
+                                <connections>
+                                    <action selector="donePressed:" destination="xgL-aL-abm" eventType="touchDown" id="tKw-yR-BdZ"/>
+                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="ZX9-tL-bsW"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-eX-UjC" customClass="HSBColorPicker" customModule="Note" customModuleProvider="target">
                                 <rect key="frame" x="20" y="188" width="374" height="597"/>
@@ -230,8 +226,11 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="highlightedColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="URU-w3-Q1P">
+                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-1" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="URU-w3-Q1P">
                                 <rect key="frame" x="18" y="812" width="378" height="31"/>
+                                <connections>
+                                    <action selector="sliderBrightnessChanged:" destination="xgL-aL-abm" eventType="valueChanged" id="ekF-Np-Emr"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Brightness" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hH1-40-jej">
                                 <rect key="frame" x="20" y="788" width="374" height="21"/>
@@ -239,6 +238,13 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-Db-max">
+                                <rect key="frame" x="20" y="52" width="135" height="30"/>
+                                <state key="normal" title="Cancel"/>
+                                <connections>
+                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="4um-K2-4M2"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -263,6 +269,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7H3-8b-j9L"/>
                     </view>
+                    <connections>
+                        <outlet property="colorPickerScene" destination="d8D-eX-UjC" id="GQ6-6N-hJB"/>
+                        <outlet property="currenSelectLabel" destination="PWS-7r-Rml" id="y6z-wn-O6G"/>
+                        <outlet property="sliderBrightness" destination="URU-w3-Q1P" id="Rny-Bk-KYD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="URk-fk-Drs" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="36J-7O-K1A" userLabel="Exit" sceneMemberID="exit"/>

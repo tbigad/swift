@@ -14,7 +14,6 @@ internal protocol HSBColorPickerDelegate : NSObjectProtocol {
 
 @IBDesignable
 class HSBColorPicker : UIView {
-    
     weak internal var delegate: HSBColorPickerDelegate?
     let saturationExponentTop:Float = 2.0
     let saturationExponentBottom:Float = 1.3
