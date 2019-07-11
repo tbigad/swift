@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet var colorButtonsStack: UIStackView!
     @IBOutlet var customColorBtn: SelectColorButton!
@@ -35,12 +35,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedColor = .white
-        // Do any additional setup after loading the view.
+        self.HideKeyboard()
     }
 
-
     @IBAction func switchPressed(_ sender: UISwitch) {
-        dataPicker.isHidden = sender.isOn
+        dataPicker.isHidden = !sender.isOn
     }
     @IBAction func CustomColourPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToCustomColor", sender: self)
@@ -64,5 +63,15 @@ class ViewController: UIViewController {
         colorBtnPressed(sender)
     }
     
+}
+
+extension UIViewController {
+    func HideKeyboard(){
+        let Tap:UIGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dissmissKeyboard))
+        view.addGestureRecognizer(Tap)
+    }
+    @objc func dissmissKeyboard(){
+        view.endEditing(true)
+    }
 }
 
