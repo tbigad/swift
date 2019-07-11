@@ -12,6 +12,9 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
 
     @IBOutlet var colorButtonsStack: UIStackView!
     @IBOutlet var customColorBtn: SelectColorButton!
+    @IBOutlet var dataPicker: UIDatePicker!
+    @IBOutlet var textField: UITextView!
+    
     var selectedColor: UIColor = .white {
         willSet {
             var findPreset:Bool = false
@@ -31,11 +34,12 @@ class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate 
             }
         }
     }
-    @IBOutlet var dataPicker: UIDatePicker!
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedColor = .white
         self.HideKeyboard()
+        textField.layer.borderWidth = 1
+        textField.layer.borderColor = UIColor.gray.cgColor
     }
 
     @IBAction func switchPressed(_ sender: UISwitch) {

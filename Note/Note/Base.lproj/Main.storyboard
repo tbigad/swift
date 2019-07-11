@@ -22,10 +22,10 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a6n-1q-ls5" userLabel="ContentView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="448"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="473.33333333333331"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="4fm-Ei-01T" userLabel="VerticalStack">
-                                                <rect key="frame" x="20" y="8" width="374" height="432"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="4fm-Ei-01T" userLabel="VerticalStack">
+                                                <rect key="frame" x="20" y="8" width="374" height="457.33333333333331"/>
                                                 <subviews>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oFD-id-MRn">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="30"/>
@@ -33,14 +33,20 @@
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
                                                     </textField>
-                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" text="bla" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-x8-zqT">
-                                                        <rect key="frame" x="0.0" y="30" width="374" height="33"/>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Text" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I4A-Zr-MqP">
+                                                        <rect key="frame" x="0.0" y="31" width="374" height="20.333333333333329"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <color key="textColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="Dmo-x8-zqT">
+                                                        <rect key="frame" x="0.0" y="52.333333333333329" width="374" height="33"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                                     </textView>
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tri-kA-GDu">
-                                                        <rect key="frame" x="0.0" y="63.000000000000007" width="374" height="80.666666666666686"/>
+                                                        <rect key="frame" x="0.0" y="86.333333333333343" width="374" height="80.666666666666657"/>
                                                         <subviews>
                                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YVI-er-Ex5">
                                                                 <rect key="frame" x="137.33333333333334" y="25" width="51" height="31"/>
@@ -65,13 +71,13 @@
                                                         </constraints>
                                                     </view>
                                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="9Rg-Mk-vaC">
-                                                        <rect key="frame" x="0.0" y="143.66666666666666" width="374" height="215.99999999999997"/>
+                                                        <rect key="frame" x="0.0" y="168" width="374" height="216"/>
                                                         <date key="date" timeIntervalSinceReferenceDate="584312635.43575799">
                                                             <!--2019-07-08 21:03:55 +0000-->
                                                         </date>
                                                     </datePicker>
                                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="iZx-ry-5Hn">
-                                                        <rect key="frame" x="0.0" y="359.66666666666669" width="374" height="72.333333333333314"/>
+                                                        <rect key="frame" x="0.0" y="385" width="374" height="72.333333333333314"/>
                                                         <subviews>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tTa-SK-Cyu" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="0.0" width="72.333333333333329" height="72.333333333333329"/>
@@ -187,6 +193,7 @@
                         <outlet property="colorButtonsStack" destination="iZx-ry-5Hn" id="ATG-08-p0I"/>
                         <outlet property="customColorBtn" destination="BK1-GV-IM7" id="tXf-no-iLj"/>
                         <outlet property="dataPicker" destination="9Rg-Mk-vaC" id="2q1-hT-VvB"/>
+                        <outlet property="textField" destination="Dmo-x8-zqT" id="w1E-ZO-aye"/>
                         <segue destination="xgL-aL-abm" kind="show" identifier="goToCustomColor" id="iRt-gW-dA0"/>
                     </connections>
                 </viewController>
