@@ -12,18 +12,19 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
     
     var currenSelect:UIColor = .white {
         didSet{
-            currenSelectLabel.backgroundColor = currenSelect
-            currenSelectLabel.text = currenSelect.toHexString()
+            let adjasted:UIColor = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
+            currenSelectLabel.backgroundColor = adjasted
+            currenSelectLabel.text = adjasted.toHexString()
         }
     }
     var doneWasPressed:Bool = false
     @IBOutlet var sliderBrightness: UISlider!
     @IBOutlet var currenSelectLabel: UILabel!
     @IBOutlet var colorPickerScene: HSBColorPicker!
+    @IBOutlet var brightlessTextLabel: UILabel!
     
     func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
         self.currenSelect = color
-        sliderBrightness.value = 0.0
     }
     
     override func viewDidLoad() {
@@ -32,12 +33,17 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
         currenSelect = .white
     }
     @IBAction func sliderBrightnessChanged(_ sender: UISlider) {
-        self.currenSelect = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
+        let val = sender.value
+        let adjasted:UIColor = currenSelect.adjust(brightnessBy: CGFloat(val))
+        currenSelectLabel.backgroundColor = adjasted
+        currenSelectLabel.text = adjasted.toHexString()
+        let str:String = "Brightness \(val)"
+        brightlessTextLabel.text = str
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if doneWasPressed {
             let destVC = segue.destination as? ViewController
-            destVC?.selectedColor = currenSelect
+            destVC?.selectedColor = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
         }
     }
     @IBAction func donePressed(_ sender: UIButton) {

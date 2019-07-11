@@ -270,6 +270,7 @@
                         <viewLayoutGuide key="safeArea" id="7H3-8b-j9L"/>
                     </view>
                     <connections>
+                        <outlet property="brightlessTextLabel" destination="hH1-40-jej" id="PWq-dx-lgx"/>
                         <outlet property="colorPickerScene" destination="d8D-eX-UjC" id="GQ6-6N-hJB"/>
                         <outlet property="currenSelectLabel" destination="PWS-7r-Rml" id="y6z-wn-O6G"/>
                         <outlet property="sliderBrightness" destination="URU-w3-Q1P" id="Rny-Bk-KYD"/>
