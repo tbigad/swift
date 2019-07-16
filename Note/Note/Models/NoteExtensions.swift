@@ -56,4 +56,15 @@ extension Note {
                                        alpha: color["A"] ?? 0)
         return dColor
     }
+    
+    static func simpleData() -> [Note] {
+        var data:[Note] = [Note]()
+        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
+        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
+        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
+        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
+        
+        return data
+    }
+    
 }

@@ -42,7 +42,7 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
     }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if doneWasPressed {
-            let destVC = segue.destination as? ViewController
+            let destVC = segue.destination as? DitailsViewController
             destVC?.selectedColor = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
         }
     }

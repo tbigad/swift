@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
+class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
     @IBOutlet var colorButtonsStack: UIStackView!
     @IBOutlet var customColorBtn: SelectColorButton!

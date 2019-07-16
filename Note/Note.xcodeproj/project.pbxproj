@@ -13,8 +13,11 @@
 		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
 		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
 		F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */; };
+		F3A1C14322DC970C00B07862 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14222DC970C00B07862 /* MainViewController.swift */; };
+		F3A1C14522DCC62D00B07862 /* DitailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14422DCC62D00B07862 /* DitailsViewController.swift */; };
+		F3A1C14822DD0D7F00B07862 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14622DD0D7F00B07862 /* NoteTableViewCell.swift */; };
+		F3A1C14922DD0D7F00B07862 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F3A1C14722DD0D7F00B07862 /* NoteTableViewCell.xib */; };
 		F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */; };
-		F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CF22C12ECF00286D3E /* ViewController.swift */; };
 		F3BEE8D322C12ECF00286D3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D122C12ECF00286D3E /* Main.storyboard */; };
 		F3BEE8D522C12ED100286D3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D422C12ED100286D3E /* Assets.xcassets */; };
 		F3BEE8D822C12ED100286D3E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D622C12ED100286D3E /* LaunchScreen.storyboard */; };
@@ -54,9 +57,12 @@
 		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
 		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
+		F3A1C14222DC970C00B07862 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F3A1C14422DCC62D00B07862 /* DitailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DitailsViewController.swift; sourceTree = "<group>"; };
+		F3A1C14622DD0D7F00B07862 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
+		F3A1C14722DD0D7F00B07862 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
 		F3BEE8CA22C12ECF00286D3E /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F3BEE8CF22C12ECF00286D3E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F3BEE8D222C12ECF00286D3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F3BEE8D422C12ED100286D3E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F3BEE8D722C12ED100286D3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -129,6 +135,8 @@
 			children = (
 				F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */,
 				F328FF2222D4F7E000A349A0 /* ColorPicker.swift */,
+				F3A1C14622DD0D7F00B07862 /* NoteTableViewCell.swift */,
+				F3A1C14722DD0D7F00B07862 /* NoteTableViewCell.xib */,
 			);
 			path = ui;
 			sourceTree = "<group>";
@@ -161,7 +169,8 @@
 				F328FF1F22D4D3EC00A349A0 /* ui */,
 				F3BEE8FB22C12EDB00286D3E /* Models */,
 				F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */,
-				F3BEE8CF22C12ECF00286D3E /* ViewController.swift */,
+				F3A1C14422DCC62D00B07862 /* DitailsViewController.swift */,
+				F3A1C14222DC970C00B07862 /* MainViewController.swift */,
 				F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */,
 				F3BEE8D122C12ECF00286D3E /* Main.storyboard */,
 				F3BEE8D422C12ED100286D3E /* Assets.xcassets */,
@@ -315,6 +324,7 @@
 				F3BEE8D822C12ED100286D3E /* LaunchScreen.storyboard in Resources */,
 				F3BEE8D522C12ED100286D3E /* Assets.xcassets in Resources */,
 				F3BEE8D322C12ECF00286D3E /* Main.storyboard in Resources */,
+				F3A1C14922DD0D7F00B07862 /* NoteTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -428,9 +438,11 @@
 				F3BEE90122C12EFC00286D3E /* FileNotebook.swift in Sources */,
 				F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */,
 				F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */,
-				F3BEE8D022C12ECF00286D3E /* ViewController.swift in Sources */,
+				F3A1C14822DD0D7F00B07862 /* NoteTableViewCell.swift in Sources */,
 				F3BEE90022C12EFC00286D3E /* NoteExtensions.swift in Sources */,
+				F3A1C14522DCC62D00B07862 /* DitailsViewController.swift in Sources */,
 				F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */,
+				F3A1C14322DC970C00B07862 /* MainViewController.swift in Sources */,
 				F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */,
 				F3BEE8FF22C12EFC00286D3E /* Note.swift in Sources */,
 			);

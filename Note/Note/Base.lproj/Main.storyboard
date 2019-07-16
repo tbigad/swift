@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kXa-pp-Kwo">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,69 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="KrT-yT-Ypk">
+            <objects>
+                <navigationController id="kXa-pp-Kwo" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wIy-LO-Jpb">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="PWA-S5-LgS" kind="relationship" relationship="rootViewController" id="E87-ND-gdH"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rBs-yB-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1555" y="127"/>
+        </scene>
+        <!--Notes-->
+        <scene sceneID="hfY-ne-40i">
+            <objects>
+                <viewController id="PWA-S5-LgS" customClass="MainViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="trN-dY-zUi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="65W-xa-fs0">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="PWA-S5-LgS" id="FWK-5J-tdH"/>
+                                    <outlet property="delegate" destination="PWA-S5-LgS" id="hIJ-ef-fH1"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="65W-xa-fs0" firstAttribute="leading" secondItem="bcl-MH-f2l" secondAttribute="leading" id="1fo-Vu-SQ9"/>
+                            <constraint firstItem="bcl-MH-f2l" firstAttribute="bottom" secondItem="65W-xa-fs0" secondAttribute="bottom" id="bsS-0g-m9f"/>
+                            <constraint firstItem="bcl-MH-f2l" firstAttribute="trailing" secondItem="65W-xa-fs0" secondAttribute="trailing" id="gv0-M8-V7Y"/>
+                            <constraint firstItem="65W-xa-fs0" firstAttribute="top" secondItem="bcl-MH-f2l" secondAttribute="top" id="yFa-mm-3by"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bcl-MH-f2l"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Notes" id="3ON-MV-OtF">
+                        <barButtonItem key="leftBarButtonItem" systemItem="edit" id="7C0-Ie-cDC">
+                            <connections>
+                                <action selector="editBtnPressed:" destination="PWA-S5-LgS" id="pEY-Ee-oJm"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="KYO-EL-LMr">
+                            <connections>
+                                <action selector="addNewBtnPressed:" destination="PWA-S5-LgS" id="au7-tf-Tcv"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Auo-Xc-pdd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-659" y="125"/>
+        </scene>
+        <!--Ditails View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DitailsViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -91,9 +150,6 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="a7c-m8-QPD"/>
-                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKM-0m-hvz" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="75.333333333333343" y="0.0" width="72.333333333333343" height="72.333333333333329"/>
@@ -107,10 +163,6 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="bn4-5F-mDy"/>
-                                                                    <action selector="colorRedBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="vUL-D2-8v1"/>
-                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdH-bh-ady" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="150.66666666666666" y="0.0" width="72.666666666666657" height="72.333333333333329"/>
@@ -123,10 +175,6 @@
                                                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="colorBlueBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="jUp-Nb-1dx"/>
-                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="76W-VD-9sn"/>
-                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuO-SG-CaU" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="226.33333333333334" y="0.0" width="72.333333333333343" height="72.333333333333329"/>
@@ -139,9 +187,6 @@
                                                                         <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
-                                                                <connections>
-                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="valueChanged" id="10b-Ai-Sgb"/>
-                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-GV-IM7" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="301.66666666666669" y="0.0" width="72.333333333333314" height="72.333333333333329"/>
@@ -149,9 +194,6 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="BK1-GV-IM7" secondAttribute="height" multiplier="1:1" id="3gK-W2-NNp"/>
                                                                 </constraints>
-                                                                <connections>
-                                                                    <action selector="CustomColourPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="apy-rA-EDh"/>
-                                                                </connections>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -210,7 +252,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rlp-eo-Gc5">
-                                <rect key="frame" x="271" y="52" width="135" height="30"/>
+                                <rect key="frame" x="274" y="52" width="120" height="30"/>
                                 <state key="normal" title="Done"/>
                                 <state key="highlighted" title="Done"/>
                                 <connections>
@@ -245,8 +287,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-Db-max">
-                                <rect key="frame" x="20" y="52" width="135" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-Db-max">
+                                <rect key="frame" x="20" y="52" width="115" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="4um-K2-4M2"/>
@@ -255,24 +297,25 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Rlp-eo-Gc5" firstAttribute="leading" relation="lessThanOrEqual" secondItem="PWS-7r-Rml" secondAttribute="trailing" id="3Uv-CV-Bqk"/>
-                            <constraint firstItem="d8D-eX-UjC" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="5Mq-xL-brS"/>
-                            <constraint firstItem="URU-w3-Q1P" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="94R-Wb-qga"/>
-                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="hH1-40-jej" secondAttribute="trailing" constant="20" id="AzV-M5-O7E"/>
-                            <constraint firstItem="hH1-40-jej" firstAttribute="top" secondItem="d8D-eX-UjC" secondAttribute="bottom" constant="3" id="IXS-7E-bWI"/>
-                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="URU-w3-Q1P" secondAttribute="trailing" constant="20" id="U6Y-Ba-Nnu"/>
-                            <constraint firstItem="7H3-8b-j9L" firstAttribute="bottom" secondItem="URU-w3-Q1P" secondAttribute="bottom" constant="20" id="WvV-JT-PXf"/>
-                            <constraint firstItem="G9t-Db-max" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="YWi-BM-bvv"/>
-                            <constraint firstItem="G9t-Db-max" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="8" id="YZg-sm-PRK"/>
-                            <constraint firstItem="URU-w3-Q1P" firstAttribute="top" secondItem="hH1-40-jej" secondAttribute="bottom" constant="3" id="b0t-L3-Ghj"/>
-                            <constraint firstItem="hH1-40-jej" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="i3b-nG-vTp"/>
-                            <constraint firstItem="d8D-eX-UjC" firstAttribute="top" secondItem="PWS-7r-Rml" secondAttribute="bottom" constant="8" id="k8D-Gn-DzC"/>
-                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="d8D-eX-UjC" secondAttribute="trailing" constant="20" id="klz-DC-6QC"/>
-                            <constraint firstItem="Rlp-eo-Gc5" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="pA3-ma-DFe"/>
-                            <constraint firstItem="PWS-7r-Rml" firstAttribute="leading" relation="lessThanOrEqual" secondItem="G9t-Db-max" secondAttribute="trailing" id="r2h-ax-CeL"/>
-                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="Rlp-eo-Gc5" secondAttribute="trailing" constant="8" id="r4n-2w-i4G"/>
-                            <constraint firstItem="PWS-7r-Rml" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="xJi-5u-uvw"/>
-                            <constraint firstItem="PWS-7r-Rml" firstAttribute="centerX" secondItem="Qd4-3U-4lH" secondAttribute="centerX" id="ylM-eU-7OR"/>
+                            <constraint firstItem="Rlp-eo-Gc5" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="38n-W2-gwX"/>
+                            <constraint firstItem="d8D-eX-UjC" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="43c-Za-jE2"/>
+                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="hH1-40-jej" secondAttribute="trailing" constant="20" id="4gi-j3-IiH"/>
+                            <constraint firstItem="hH1-40-jej" firstAttribute="top" secondItem="d8D-eX-UjC" secondAttribute="bottom" constant="3" id="4jZ-KG-azL"/>
+                            <constraint firstItem="URU-w3-Q1P" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="7gR-OS-XoN"/>
+                            <constraint firstItem="7H3-8b-j9L" firstAttribute="bottom" secondItem="URU-w3-Q1P" secondAttribute="bottom" constant="20" id="9Z3-xy-FUo"/>
+                            <constraint firstItem="hH1-40-jej" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="GPB-bN-l95"/>
+                            <constraint firstItem="PWS-7r-Rml" firstAttribute="centerX" secondItem="Qd4-3U-4lH" secondAttribute="centerX" id="HbS-XV-5A3"/>
+                            <constraint firstItem="PWS-7r-Rml" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="In5-XS-WEN"/>
+                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="URU-w3-Q1P" secondAttribute="trailing" constant="20" id="NLS-aO-VaD"/>
+                            <constraint firstItem="d8D-eX-UjC" firstAttribute="top" secondItem="PWS-7r-Rml" secondAttribute="bottom" constant="8" id="QPd-gI-Hzc"/>
+                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="d8D-eX-UjC" secondAttribute="trailing" constant="20" id="Srl-qy-aq3"/>
+                            <constraint firstItem="URU-w3-Q1P" firstAttribute="top" secondItem="hH1-40-jej" secondAttribute="bottom" constant="3" id="XBt-2K-sgg"/>
+                            <constraint firstItem="PWS-7r-Rml" firstAttribute="leading" secondItem="G9t-Db-max" secondAttribute="trailing" constant="8" id="ZXt-tv-sLg"/>
+                            <constraint firstItem="d8D-eX-UjC" firstAttribute="centerX" secondItem="Qd4-3U-4lH" secondAttribute="centerX" id="bC7-OQ-pK1"/>
+                            <constraint firstItem="G9t-Db-max" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="fFX-Kc-u1f"/>
+                            <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Rlp-eo-Gc5" secondAttribute="trailing" constant="20" id="kiF-Du-zNT"/>
+                            <constraint firstItem="G9t-Db-max" firstAttribute="leading" relation="lessThanOrEqual" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="uwD-ro-akK"/>
+                            <constraint firstItem="Rlp-eo-Gc5" firstAttribute="leading" secondItem="PWS-7r-Rml" secondAttribute="trailing" constant="3" id="xcl-Oo-4j7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7H3-8b-j9L"/>
                     </view>
