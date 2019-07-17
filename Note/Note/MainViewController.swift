@@ -10,9 +10,13 @@ import UIKit
 
 class MainViewController: UIViewController {
 
+    var notes = Note.simpleData()
+    
+    @IBOutlet var notesTableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        notesTableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "Note")
         // Do any additional setup after loading the view.
     }
     
@@ -37,13 +41,17 @@ class MainViewController: UIViewController {
 }
 
 extension MainViewController : UITableViewDataSource, UITableViewDelegate {
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return 0
+       return notes.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
-        
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Note", for: indexPath) as! NoteTableViewCell
+        let note = notes[indexPath.row]
+        cell.textNoteLabel.text = note.content
+        cell.titleLabel.text = note.title
+        return cell
     }
     
     

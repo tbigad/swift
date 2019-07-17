@@ -10,6 +10,9 @@ import UIKit
 
 class NoteTableViewCell: UITableViewCell {
 
+    @IBOutlet var colorLabel: UILabel!
+    @IBOutlet var titleLabel: UILabel!
+    @IBOutlet var textNoteLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
