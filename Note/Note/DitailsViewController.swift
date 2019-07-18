@@ -8,12 +8,20 @@
 
 import UIKit
 
+protocol DitailsViewDelegate {
+    func dataDidChanged(data:Note?);
+}
+
 class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDelegate {
 
+    @IBOutlet var titleField: UITextField!
     @IBOutlet var colorButtonsStack: UIStackView!
     @IBOutlet var customColorBtn: SelectColorButton!
     @IBOutlet var dataPicker: UIDatePicker!
     @IBOutlet var textField: UITextView!
+    
+    var note:Note?
+    var delegate : DitailsViewDelegate?
     
     var selectedColor: UIColor = .white {
         willSet {
@@ -36,37 +44,36 @@ class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedColor = .white
+        if(note == nil){
+            note = Note("", "")
+        }
+        selectedColor = note?.color ?? .white
+        if ((note?.autoRemoveDate) != nil) {
+            dataPicker.date = (note?.autoRemoveDate)!
+        }
+        textField.text = note?.content
+        titleField.text = note?.title
+        
         self.HideKeyboard()
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.gray.cgColor
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        delegate?.dataDidChanged(data: note)
+    }
+    
     @IBAction func switchPressed(_ sender: UISwitch) {
         dataPicker.isHidden = !sender.isOn
     }
     @IBAction func CustomColourPressed(_ sender: UIButton) {
         performSegue(withIdentifier: "goToCustomColor", sender: self)
     }
-    
-    @IBAction func unwindFromPicker(_ sender: UIStoryboardSegue) {
         
-    }
-    
     @IBAction func colorBtnPressed(_ sender: SelectColorButton) {
         print(sender.presetColor)
         selectedColor = sender.presetColor
     }
-    @IBAction func colorRedBtnPressed(_ sender: SelectColorButton) {
-        colorBtnPressed(sender)
-    }
-    @IBAction func colorBlueBtnPressed(_ sender: SelectColorButton) {
-        colorBtnPressed(sender)
-    }
-    @IBAction func colorYellowBtnPreset(_ sender: SelectColorButton) {
-        colorBtnPressed(sender)
-    }
-    
 }
 
 extension UIViewController {

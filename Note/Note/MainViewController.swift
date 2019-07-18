@@ -26,21 +26,37 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func editBtnPressed(_ sender: UIBarButtonItem) {
-        
+        notesTableView.setEditing(!notesTableView.isEditing, animated: true)
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if let controller = segue.destination as? DitailsViewController, segue.identifier == "goToNoteDitails" {
+            controller.delegate = self
+            if let row = notesTableView.indexPathForSelectedRow {
+                controller.note = notes[row.row]
+                notesTableView.deselectRow(at: row, animated: true)
+            } else {
+                controller.note = nil
+            }
+        }
     }
-    */
-
 }
 
-extension MainViewController : UITableViewDataSource, UITableViewDelegate {
+extension MainViewController : UITableViewDataSource, UITableViewDelegate, DitailsViewDelegate {
+    
+    func dataDidChanged(data: Note?) {
+        if data != nil {
+            if notes.contains(where: {$0.uid == data?.uid}) {
+                let index = notes.firstIndex(where: {$0.uid == data?.uid})
+                notes[index!] = data!
+                print(notes[index!].title)
+                notesTableView.reloadData()
+            } else {
+                notes.append(data!)
+                notesTableView.reloadData()
+            }
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
        return notes.count
@@ -51,8 +67,19 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate {
         let note = notes[indexPath.row]
         cell.textNoteLabel.text = note.content
         cell.titleLabel.text = note.title
+        cell.noteColor = note.color
+        
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.notes.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "goToNoteDitails", sender: notes[indexPath.row])
+    }
 }
