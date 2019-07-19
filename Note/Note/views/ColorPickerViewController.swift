@@ -15,9 +15,10 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
             let adjasted:UIColor = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
             currenSelectLabel.backgroundColor = adjasted
             currenSelectLabel.text = adjasted.toHexString()
+            currenSelectLabel.textColor = adjasted.invert()
         }
     }
-    var doneWasPressed:Bool = false
+    
     @IBOutlet var sliderBrightness: UISlider!
     @IBOutlet var currenSelectLabel: UILabel!
     @IBOutlet var colorPickerScene: HSBColorPicker!
@@ -32,6 +33,7 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
         colorPickerScene.delegate = self
         currenSelect = .white
     }
+    
     @IBAction func sliderBrightnessChanged(_ sender: UISlider) {
         let val = sender.value
         let adjasted:UIColor = currenSelect.adjust(brightnessBy: CGFloat(val))
@@ -40,14 +42,13 @@ class ColorPickerViewController: UIViewController, HSBColorPickerDelegate {
         let str:String = "Brightness \(val)"
         brightlessTextLabel.text = str
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if doneWasPressed {
             let destVC = segue.destination as? DitailsViewController
             destVC?.selectedColor = currenSelect.adjust(brightnessBy: CGFloat(sliderBrightness?.value ?? 0.0))
-        }
     }
-    @IBAction func donePressed(_ sender: UIButton) {
-        doneWasPressed = true
+    @IBAction func cancelBtnPressed(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
     }
 }
 
@@ -64,6 +65,22 @@ extension UIColor {
         
         return String(format:"#%06x", rgb)
     }
+    
+    func invert() -> UIColor {
+        var red         :   CGFloat  =   255.0
+        var green       :   CGFloat  =   255.0
+        var blue        :   CGFloat  =   255.0
+        var alpha       :   CGFloat  =   1.0
+        
+        self.getRed(&red, green: &green, blue: &blue, alpha: &alpha)
+        
+        red     =   255.0 - (red * 255.0)
+        green   =   255.0 - (green * 255.0)
+        blue    =   255.0 - (blue * 255.0)
+        
+        return UIColor(red: red / 255.0, green: green / 255.0, blue: blue / 255.0, alpha: alpha)
+    }
+    
     public func adjust(hueBy hue: CGFloat = 0, saturationBy saturation: CGFloat = 0, brightnessBy brightness: CGFloat = 0) -> UIColor {
         
         var currentHue: CGFloat = 0.0

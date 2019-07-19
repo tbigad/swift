@@ -13,7 +13,6 @@
         <!--Tab Bar Controller-->
         <scene sceneID="IEw-Kd-bGe">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Y1-i3-dLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tabBarController id="hRC-oI-WMe" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EPK-zb-Zn7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -25,15 +24,15 @@
                         <segue destination="gA3-7T-d0J" kind="relationship" relationship="viewControllers" id="fOx-A7-ClG"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Y1-i3-dLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2397" y="828"/>
         </scene>
-        <!--Item-->
+        <!--Notes-->
         <scene sceneID="KrT-yT-Ypk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rBs-yB-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="kXa-pp-Kwo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tUJ-JF-iAd"/>
+                    <tabBarItem key="tabBarItem" title="Notes" selectedImage="PenIcon" id="tUJ-JF-iAd"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wIy-LO-Jpb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -42,6 +41,7 @@
                         <segue destination="PWA-S5-LgS" kind="relationship" relationship="rootViewController" id="a2u-q9-bTE"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rBs-yB-hCc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1555" y="125"/>
         </scene>
@@ -71,7 +71,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bcl-MH-f2l"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="iln-rI-Tmq"/>
+                    <tabBarItem key="tabBarItem" title="Notes" selectedImage="PenIcon" id="iln-rI-Tmq"/>
                     <navigationItem key="navigationItem" title="Notes" id="3ON-MV-OtF">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="7C0-Ie-cDC">
                             <connections>
@@ -93,11 +93,11 @@
             </objects>
             <point key="canvasLocation" x="-659" y="125"/>
         </scene>
-        <!--Item-->
+        <!--Images-->
         <scene sceneID="shJ-cW-0ca">
             <objects>
                 <navigationController id="gA3-7T-d0J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="Q7h-l9-Nto"/>
+                    <tabBarItem key="tabBarItem" title="Images" id="Q7h-l9-Nto"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qde-0C-QV8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -110,54 +110,88 @@
             </objects>
             <point key="canvasLocation" x="-1555" y="828"/>
         </scene>
-        <!--View Controller-->
+        <!--Images-->
         <scene sceneID="1bQ-tr-ant">
             <objects>
-                <viewController id="GDf-xr-wM2" sceneMemberID="viewController">
+                <viewController id="GDf-xr-wM2" customClass="ImagesListViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WFf-pH-l30">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="vXi-Uc-zDl">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="IES-bi-FpH">
+                                <rect key="frame" x="8" y="91" width="398" height="714"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ldl-OL-9FE">
-                                    <size key="itemSize" width="50" height="50"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="wRP-XD-F0O">
+                                    <size key="itemSize" width="100" height="100"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Hvo-91-Ysr">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
+                                <cells/>
+                                <connections>
+                                    <outlet property="dataSource" destination="GDf-xr-wM2" id="vjS-Hr-F84"/>
+                                    <outlet property="delegate" destination="GDf-xr-wM2" id="Ucp-OY-Nxx"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="vXi-Uc-zDl" firstAttribute="top" secondItem="0Kh-I2-Mfc" secondAttribute="top" id="5lM-8V-AmP"/>
-                            <constraint firstItem="0Kh-I2-Mfc" firstAttribute="bottom" secondItem="vXi-Uc-zDl" secondAttribute="bottom" id="Ruy-KY-C8V"/>
-                            <constraint firstItem="vXi-Uc-zDl" firstAttribute="leading" secondItem="0Kh-I2-Mfc" secondAttribute="leading" id="UPO-Wh-vVT"/>
-                            <constraint firstItem="0Kh-I2-Mfc" firstAttribute="trailing" secondItem="vXi-Uc-zDl" secondAttribute="trailing" id="rJV-GQ-haP"/>
+                            <constraint firstItem="0Kh-I2-Mfc" firstAttribute="bottom" secondItem="IES-bi-FpH" secondAttribute="bottom" constant="8" id="155-qg-yMi"/>
+                            <constraint firstItem="IES-bi-FpH" firstAttribute="leading" secondItem="0Kh-I2-Mfc" secondAttribute="leading" constant="8" id="Mqv-hi-uOW"/>
+                            <constraint firstItem="0Kh-I2-Mfc" firstAttribute="trailing" secondItem="IES-bi-FpH" secondAttribute="trailing" constant="8" id="Tbr-O0-PAo"/>
+                            <constraint firstItem="IES-bi-FpH" firstAttribute="top" secondItem="0Kh-I2-Mfc" secondAttribute="top" constant="3" id="Y8P-EF-jFf"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="0Kh-I2-Mfc"/>
                     </view>
-                    <navigationItem key="navigationItem" id="SfO-Nf-ZD2"/>
+                    <navigationItem key="navigationItem" title="Images" id="SfO-Nf-ZD2">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="fWP-0a-Hx5">
+                            <connections>
+                                <action selector="addBtnPressed:" destination="GDf-xr-wM2" id="N6g-DC-hr2"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imagesCollectionView" destination="IES-bi-FpH" id="kye-8o-Z8u"/>
+                        <segue destination="dce-8g-NI9" kind="show" identifier="goToScrollImage" id="e69-aF-1qN"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qfe-k2-TOS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-659" y="828"/>
+            <point key="canvasLocation" x="-659.4202898550725" y="827.67857142857144"/>
         </scene>
-        <!--Ditails View Controller-->
+        <!--Image Scroll View Controller-->
+        <scene sceneID="oqK-5N-ya8">
+            <objects>
+                <viewController id="dce-8g-NI9" customClass="ImageScrollViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cga-Cm-kD7">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gm-7h-d77">
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="9Gm-7h-d77" firstAttribute="leading" secondItem="jEO-Zb-8aR" secondAttribute="leading" id="GVG-Dc-m4l"/>
+                            <constraint firstItem="jEO-Zb-8aR" firstAttribute="trailing" secondItem="9Gm-7h-d77" secondAttribute="trailing" id="XE6-bL-ZiK"/>
+                            <constraint firstItem="jEO-Zb-8aR" firstAttribute="bottom" secondItem="9Gm-7h-d77" secondAttribute="bottom" id="bQ1-et-XZF"/>
+                            <constraint firstItem="9Gm-7h-d77" firstAttribute="top" secondItem="jEO-Zb-8aR" secondAttribute="top" id="dte-fC-vct"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="jEO-Zb-8aR"/>
+                    </view>
+                    <connections>
+                        <outlet property="scrollView" destination="9Gm-7h-d77" id="P6F-MN-Dss"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tU6-Be-qba" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="131.8840579710145" y="827.67857142857144"/>
+        </scene>
+        <!--Note Ditails-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DitailsViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Note Ditails" id="BYZ-38-t0r" customClass="DitailsViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -235,6 +269,9 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="dWg-Y3-zWN"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKM-0m-hvz" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="75.333333333333343" y="0.0" width="72.333333333333343" height="72.333333333333329"/>
@@ -248,6 +285,9 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                     <userDefinedRuntimeAttribute type="boolean" keyPath="isSelect" value="NO"/>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="lLX-dh-8Pr"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="CdH-bh-ady" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="150.66666666666666" y="0.0" width="72.666666666666657" height="72.333333333333329"/>
@@ -260,6 +300,9 @@
                                                                         <color key="value" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="PeO-WD-LJG"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YuO-SG-CaU" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="226.33333333333334" y="0.0" width="72.333333333333343" height="72.333333333333329"/>
@@ -272,6 +315,9 @@
                                                                         <color key="value" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="colorBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="yVi-8I-Ls3"/>
+                                                                </connections>
                                                             </view>
                                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BK1-GV-IM7" customClass="SelectColorButton" customModule="Note" customModuleProvider="target">
                                                                 <rect key="frame" x="301.66666666666669" y="0.0" width="72.333333333333314" height="72.333333333333329"/>
@@ -279,6 +325,9 @@
                                                                 <constraints>
                                                                     <constraint firstAttribute="width" secondItem="BK1-GV-IM7" secondAttribute="height" multiplier="1:1" id="3gK-W2-NNp"/>
                                                                 </constraints>
+                                                                <connections>
+                                                                    <action selector="CustomColourPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="P29-sr-rIu"/>
+                                                                </connections>
                                                             </view>
                                                         </subviews>
                                                         <constraints>
@@ -329,10 +378,10 @@
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="128.57142857142856"/>
         </scene>
-        <!--Color Picker View Controller-->
+        <!--Color Picker-->
         <scene sceneID="ILr-pQ-9E5">
             <objects>
-                <viewController id="xgL-aL-abm" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Color Picker" id="xgL-aL-abm" customClass="ColorPickerViewController" customModule="Note" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Qd4-3U-4lH" userLabel="ColorPickerView">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -342,8 +391,7 @@
                                 <state key="normal" title="Done"/>
                                 <state key="highlighted" title="Done"/>
                                 <connections>
-                                    <action selector="donePressed:" destination="xgL-aL-abm" eventType="touchDown" id="tKw-yR-BdZ"/>
-                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="ZX9-tL-bsW"/>
+                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindToDitalis:" id="xbx-C2-CGa"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="d8D-eX-UjC" customClass="HSBColorPicker" customModule="Note" customModuleProvider="target">
@@ -377,7 +425,7 @@
                                 <rect key="frame" x="20" y="96" width="115" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
-                                    <segue destination="36J-7O-K1A" kind="unwind" unwindAction="unwindFromPicker:" id="4um-K2-4M2"/>
+                                    <action selector="cancelBtnPressed:" destination="xgL-aL-abm" eventType="touchDown" id="VAH-ls-dLU"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -418,4 +466,7 @@
             <point key="canvasLocation" x="898.55072463768124" y="128.57142857142856"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="PenIcon" width="25" height="25"/>
+    </resources>
 </document>

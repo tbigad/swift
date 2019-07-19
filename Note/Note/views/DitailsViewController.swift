@@ -60,7 +60,13 @@ class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        delegate?.dataDidChanged(data: note)
+        let n = Note(titleField.text!, textField.text, note!.priority,note!.uid , dataPicker.date, selectedColor)
+        delegate?.dataDidChanged(data: n)
+    }
+    
+    @IBAction func unwindToDitalis(_ unwindSegue: UIStoryboardSegue) {
+        let sourceViewController = unwindSegue.source
+        // Use data from the view controller which initiated the unwind segue
     }
     
     @IBAction func switchPressed(_ sender: UISwitch) {

@@ -19,13 +19,13 @@ class NoteTableViewCell: UITableViewCell {
             setNeedsDisplay()
         }
     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         colorLabel.layer.borderWidth = 1
         colorLabel.layer.borderColor = UIColor.black.cgColor
     }
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
