@@ -10,15 +10,19 @@ import UIKit
 
 class ImageScrollViewController: UIViewController {
 
+    @IBOutlet var pageControl: UIPageControl!
     @IBOutlet var scrollView: UIScrollView!
     var images:[UIImage] = [UIImage]()
+    var startPos:Int = 0
     
     private var imageViews:[UIImageView] = [UIImageView]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        imageViews.removeAll()
+        scrollView.delegate = self
+        pageControl.numberOfPages = images.count
+        pageControl.currentPage = startPos
+        
         for image in images {
             let imageView = UIImageView(image: image)
             imageView.contentMode = .scaleAspectFit
@@ -36,8 +40,20 @@ class ImageScrollViewController: UIViewController {
         }
         let contentWidth = scrollView.frame.width * CGFloat(imageViews.count)
         scrollView.contentSize = CGSize(width: contentWidth, height: scrollView.frame.height)
+        
+        let offset = scrollView.frame.width * CGFloat(startPos)
+        scrollView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        imageViews.removeAll()
+        startPos = 0
+    }
+    
+    @IBAction func pageControlValueChanged(_ sender: UIPageControl) {
+        let offset = scrollView.frame.width * CGFloat(pageControl.currentPage)
+        scrollView.setContentOffset(CGPoint(x: offset, y: 0), animated: true)
+    }
     
 
     /*
@@ -52,5 +68,8 @@ class ImageScrollViewController: UIViewController {
 
 }
 extension ImageScrollViewController : UIScrollViewDelegate {
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let pageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        pageControl.currentPage = pageIndex
+    }
 }

@@ -169,18 +169,29 @@
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Gm-7h-d77">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
+                                <color key="backgroundColor" red="0.43529412150000002" green="0.4431372583" blue="0.47450980539999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </scrollView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ecQ-65-xnd">
+                                <rect key="frame" x="8" y="768" width="398" height="37"/>
+                                <connections>
+                                    <action selector="pageControlValueChanged:" destination="dce-8g-NI9" eventType="valueChanged" id="tJd-fM-agO"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="9Gm-7h-d77" firstAttribute="leading" secondItem="jEO-Zb-8aR" secondAttribute="leading" id="GVG-Dc-m4l"/>
+                            <constraint firstItem="jEO-Zb-8aR" firstAttribute="trailing" secondItem="ecQ-65-xnd" secondAttribute="trailing" constant="8" id="H6a-M3-IBb"/>
+                            <constraint firstItem="jEO-Zb-8aR" firstAttribute="bottom" secondItem="ecQ-65-xnd" secondAttribute="bottom" constant="8" id="Rgc-Jh-xZk"/>
                             <constraint firstItem="jEO-Zb-8aR" firstAttribute="trailing" secondItem="9Gm-7h-d77" secondAttribute="trailing" id="XE6-bL-ZiK"/>
                             <constraint firstItem="jEO-Zb-8aR" firstAttribute="bottom" secondItem="9Gm-7h-d77" secondAttribute="bottom" id="bQ1-et-XZF"/>
                             <constraint firstItem="9Gm-7h-d77" firstAttribute="top" secondItem="jEO-Zb-8aR" secondAttribute="top" id="dte-fC-vct"/>
+                            <constraint firstItem="ecQ-65-xnd" firstAttribute="leading" secondItem="jEO-Zb-8aR" secondAttribute="leading" constant="8" id="jzr-hK-A6c"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jEO-Zb-8aR"/>
                     </view>
                     <connections>
+                        <outlet property="pageControl" destination="ecQ-65-xnd" id="tVR-3Y-AG1"/>
                         <outlet property="scrollView" destination="9Gm-7h-d77" id="P6F-MN-Dss"/>
                     </connections>
                 </viewController>

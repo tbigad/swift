@@ -13,6 +13,7 @@ class ImagesListViewController: UIViewController {
     @IBOutlet var imagesCollectionView: UICollectionView!
     var images:[UIImage] = [UIImage(named: "first")!,UIImage(named: "second")!,UIImage(named: "third")!]
     var imagePicker:ImagePicker!
+    var selectedIndex:Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +28,8 @@ class ImagesListViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let controller = segue.destination as? ImageScrollViewController, segue.identifier == "goToScrollImage" {
             controller.images = images
+            controller.startPos = selectedIndex
+            selectedIndex = 0
         }
     }
 
@@ -49,6 +52,7 @@ extension ImagesListViewController : UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedIndex = indexPath.row
         performSegue(withIdentifier: "goToScrollImage", sender: nil)
     }
     
