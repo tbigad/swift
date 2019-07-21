@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="hRC-oI-WMe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="HHe-Zf-TWi">
     <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,29 +10,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
-        <scene sceneID="IEw-Kd-bGe">
-            <objects>
-                <tabBarController id="hRC-oI-WMe" sceneMemberID="viewController">
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="EPK-zb-Zn7">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="kXa-pp-Kwo" kind="relationship" relationship="viewControllers" id="gHC-jU-luF"/>
-                        <segue destination="gA3-7T-d0J" kind="relationship" relationship="viewControllers" id="fOx-A7-ClG"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Y1-i3-dLk" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2397" y="828"/>
-        </scene>
         <!--Notes-->
         <scene sceneID="KrT-yT-Ypk">
             <objects>
                 <navigationController id="kXa-pp-Kwo" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Notes" selectedImage="PenIcon" id="tUJ-JF-iAd"/>
+                    <tabBarItem key="tabBarItem" title="Notes" image="PenIcon" id="dN9-Tu-INa"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wIy-LO-Jpb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -71,7 +53,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bcl-MH-f2l"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Notes" selectedImage="PenIcon" id="iln-rI-Tmq"/>
                     <navigationItem key="navigationItem" title="Notes" id="3ON-MV-OtF">
                         <barButtonItem key="leftBarButtonItem" systemItem="edit" id="7C0-Ie-cDC">
                             <connections>
@@ -93,11 +74,29 @@
             </objects>
             <point key="canvasLocation" x="-659" y="125"/>
         </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="JlA-uV-p92">
+            <objects>
+                <tabBarController id="HHe-Zf-TWi" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="nBL-op-Hgm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="kXa-pp-Kwo" kind="relationship" relationship="viewControllers" id="Smp-5i-2bv"/>
+                        <segue destination="gA3-7T-d0J" kind="relationship" relationship="viewControllers" id="GbD-Yt-cnu"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="buT-JP-dPP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3419" y="508"/>
+        </scene>
         <!--Images-->
         <scene sceneID="shJ-cW-0ca">
             <objects>
                 <navigationController id="gA3-7T-d0J" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Images" id="Q7h-l9-Nto"/>
+                    <tabBarItem key="tabBarItem" title="Images" image="imagesIcon" id="noJ-SF-aid"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Qde-0C-QV8">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -433,7 +432,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9t-Db-max">
-                                <rect key="frame" x="20" y="96" width="115" height="30"/>
+                                <rect key="frame" x="20" y="96" width="123" height="30"/>
                                 <state key="normal" title="Cancel"/>
                                 <connections>
                                     <action selector="cancelBtnPressed:" destination="xgL-aL-abm" eventType="touchDown" id="VAH-ls-dLU"/>
@@ -455,11 +454,11 @@
                             <constraint firstItem="d8D-eX-UjC" firstAttribute="top" secondItem="PWS-7r-Rml" secondAttribute="bottom" constant="8" id="QPd-gI-Hzc"/>
                             <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" secondItem="d8D-eX-UjC" secondAttribute="trailing" constant="20" id="Srl-qy-aq3"/>
                             <constraint firstItem="URU-w3-Q1P" firstAttribute="top" secondItem="hH1-40-jej" secondAttribute="bottom" constant="3" id="XBt-2K-sgg"/>
-                            <constraint firstItem="PWS-7r-Rml" firstAttribute="leading" secondItem="G9t-Db-max" secondAttribute="trailing" constant="8" id="ZXt-tv-sLg"/>
                             <constraint firstItem="d8D-eX-UjC" firstAttribute="centerX" secondItem="Qd4-3U-4lH" secondAttribute="centerX" id="bC7-OQ-pK1"/>
+                            <constraint firstItem="PWS-7r-Rml" firstAttribute="leading" secondItem="G9t-Db-max" secondAttribute="trailing" id="f7E-1F-RR7"/>
                             <constraint firstItem="G9t-Db-max" firstAttribute="top" secondItem="7H3-8b-j9L" secondAttribute="top" constant="8" id="fFX-Kc-u1f"/>
                             <constraint firstItem="7H3-8b-j9L" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Rlp-eo-Gc5" secondAttribute="trailing" constant="20" id="kiF-Du-zNT"/>
-                            <constraint firstItem="G9t-Db-max" firstAttribute="leading" relation="lessThanOrEqual" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="uwD-ro-akK"/>
+                            <constraint firstItem="G9t-Db-max" firstAttribute="leading" secondItem="7H3-8b-j9L" secondAttribute="leading" constant="20" id="uwD-ro-akK"/>
                             <constraint firstItem="Rlp-eo-Gc5" firstAttribute="leading" secondItem="PWS-7r-Rml" secondAttribute="trailing" constant="3" id="xcl-Oo-4j7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7H3-8b-j9L"/>
@@ -479,5 +478,6 @@
     </scenes>
     <resources>
         <image name="PenIcon" width="25" height="25"/>
+        <image name="imagesIcon" width="25" height="25"/>
     </resources>
 </document>
