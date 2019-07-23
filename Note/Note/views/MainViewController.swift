@@ -10,7 +10,7 @@ import UIKit
 
 class MainViewController: UIViewController {
 
-    var notes = Note.simpleData()
+    var noteBook = FileNotebook()
     
     @IBOutlet var notesTableView: UITableView!
     override func viewDidLoad() {
@@ -33,7 +33,7 @@ class MainViewController: UIViewController {
         if let controller = segue.destination as? DitailsViewController, segue.identifier == "goToNoteDitails" {
             controller.delegate = self
             if let row = notesTableView.indexPathForSelectedRow {
-                controller.note = notes[row.row]
+                controller.note = noteBook.notes[row.row]
                 notesTableView.deselectRow(at: row, animated: true)
             } else {
                 controller.note = nil
@@ -46,25 +46,18 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
     
     func dataDidChanged(data: Note?) {
         if data != nil {
-            if notes.contains(where: {$0.uid == data?.uid}) {
-                let index = notes.firstIndex(where: {$0.uid == data?.uid})
-                notes[index!] = data!
-                print(notes[index!].title)
-                notesTableView.reloadData()
-            } else {
-                notes.append(data!)
-                notesTableView.reloadData()
-            }
+            noteBook.add(data!)
+            notesTableView.reloadData()
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return notes.count
+       return noteBook.notes.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Note", for: indexPath) as! NoteTableViewCell
-        let note = notes[indexPath.row]
+        let note = noteBook.notes[indexPath.row]
         cell.textNoteLabel.text = note.content
         cell.titleLabel.text = note.title
         cell.noteColor = note.color
@@ -74,12 +67,12 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.notes.remove(at: indexPath.row)
+            self.noteBook.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToNoteDitails", sender: notes[indexPath.row])
+        performSegue(withIdentifier: "goToNoteDitails", sender: noteBook.notes[indexPath.row])
     }
 }

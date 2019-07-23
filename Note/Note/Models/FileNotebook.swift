@@ -10,10 +10,21 @@ import Foundation
 
 class FileNotebook {
     public func add(_ note: Note) {
-        notes.append(note)
+        if notes.contains(where: {$0.uid == note.uid}) {
+            let index = notes.firstIndex(where: {$0.uid == note.uid})
+            notes[index!] = note
+        } else {
+            notes.append(note)
+        }
     }
     public func remove(with uid: String) {
         let index = indexByUId(uid);
+        if index < 0 {
+            return
+        }
+        notes.remove(at: index)
+    }
+    public func remove(at index: Int) {
         if index < 0 {
             return
         }
