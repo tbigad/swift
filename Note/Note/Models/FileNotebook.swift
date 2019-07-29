@@ -9,7 +9,7 @@
 import Foundation
 
 class FileNotebook {
-    public func add(_ note: Note) {
+    public func add(note: Note) {
         if notes.contains(where: {$0.uid == note.uid}) {
             let index = notes.firstIndex(where: {$0.uid == note.uid})
             notes[index!] = note
@@ -64,7 +64,7 @@ class FileNotebook {
                     print(js)
                     
                     if let note = Note.parse(json: js )  {
-                        add(note)
+                        add(note: note)
                     }
                 } catch { }
                 

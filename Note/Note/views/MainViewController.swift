@@ -46,7 +46,7 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
     
     func dataDidChanged(data: Note?) {
         if data != nil {
-            noteBook.add(data!)
+            noteBook.add(note: data!)
             notesTableView.reloadData()
         }
     }
