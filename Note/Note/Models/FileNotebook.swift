@@ -10,90 +10,68 @@ import Foundation
 
 class FileNotebook {
     public func add(note: Note) {
-        if notes.contains(where: {$0.uid == note.uid}) {
-            let index = notes.firstIndex(where: {$0.uid == note.uid})
-            notes[index!] = note
+        if notesArray.contains(where: {$0.uid == note.uid}) {
+            let index = notesArray.firstIndex(where: {$0.uid == note.uid})
+            notesArray[index!] = note
         } else {
-            notes.append(note)
+            notesArray.append(note)
         }
+    }
+    public func replaseNotes(notes: [Note]) {
+        notesArray.removeAll()
+        notesArray = notes
     }
     public func remove(with uid: String) {
         let index = indexByUId(uid);
         if index < 0 {
             return
         }
-        notes.remove(at: index)
+        notesArray.remove(at: index)
     }
     public func remove(at index: Int) {
         if index < 0 {
             return
         }
-        notes.remove(at: index)
-    }
-    public func saveToFile() {
-        let dirPath = getDirPath()
-        
-        for note in notes {
-            let data = try? JSONSerialization.data(withJSONObject: note.json, options: JSONSerialization.WritingOptions.prettyPrinted)
-            let notePath = dirPath.appendingPathComponent(note.uid + ".json")
-            let file = try? FileHandle(forUpdating: notePath)
-            if file == nil {
-                FileManager.default.createFile(atPath: notePath.path, contents: data)
-            } else {
-                try? data?.write(to: notePath)
-            }
-        }
-    }
-    public func loadFromFile() {
-        let dirPath = getDirPath()
-        let fileURLs = try? FileManager.default.contentsOfDirectory(at: dirPath, includingPropertiesForKeys: nil)
-        if fileURLs == nil && fileURLs!.isEmpty {
-            return
-        }
-        for url in fileURLs! {
-            if let jsonData = try? Data(contentsOf: url, options: Data.ReadingOptions.mappedIfSafe)
-            {
-                do {
-                    let dict = try JSONSerialization.jsonObject(with: jsonData, options: [])
-                    print(dict)
-                
-                    let data = try JSONSerialization.data(withJSONObject: dict, options: [])
-                    
-                    print(data)
-                    let js = try JSONSerialization.jsonObject(with: data, options: []) as! [String : Any]
-                    print(js)
-                    
-                    if let note = Note.parse(json: js )  {
-                        add(note: note)
-                    }
-                } catch { }
-                
-            }
-        }
-        
+        notesArray.remove(at: index)
     }
     
-    private func getDirPath() -> URL {
-        let fileManager = FileManager.default
-        guard let dirPath = fileManager.urls(for: .cachesDirectory, in: .userDomainMask).first?.appendingPathComponent("MyNotes") else {
-            return URL(fileURLWithPath: "")
-        }
-        print(dirPath.path)
+    public func saveToFile(){
+        // TODO: move path to init
+        guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = docURL.appendingPathComponent("Notes.json")
         
-        var isDir: ObjCBool = false
-        if !fileManager.fileExists(atPath: dirPath.path, isDirectory: &isDir), !isDir.boolValue {
-            try? fileManager.createDirectory(at: dirPath,withIntermediateDirectories: true, attributes: nil)
+        let notes = notesArray.map{ $0.json }
+        do {
+            let data = try JSONSerialization.data(withJSONObject: notes, options: [])
+            try data.write(to: fileURL, options: [])
+            print("saved to json")
+        } catch {
+            print(error.localizedDescription)
         }
-        return dirPath
     }
+    
+    
+    public func loadFromFile(){
+        // TODO: move path to init
+        guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        let fileURL = docURL.appendingPathComponent("Notes.json")
+        do {
+            let data = try Data(contentsOf: fileURL, options: [])
+            guard let notes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] else { return }
+            notesArray = notes.map{ Note.parse(json: $0)! }
+        } catch {
+            print(error.localizedDescription)
+        }
+    }
+    
     
     private func indexByUId(_ uid: String) -> Int {
-        for (index,note) in notes.enumerated() {
+        for (index,note) in notesArray.enumerated() {
             if note.uid == uid {
                 return index
             }
         }
         return -1
     }
-    private(set) var notes : [Note] = []
+    private(set) var notesArray : [Note] = []
 }

@@ -1,7 +1,7 @@
 import Foundation
 
 enum LoadNotesBackendResult {
-    case success
+    case success([Note])
     case failure(NetworkError)
 }
 
@@ -9,7 +9,7 @@ class LoadNotesBackendOperation : BaseBackendOperation {
     var result: LoadNotesBackendResult?
     var notes:[Note] = []
     
-    init(notes: [Note]) {
+    override init() {
         super.init()
     }
     

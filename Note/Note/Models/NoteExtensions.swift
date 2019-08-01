@@ -9,9 +9,9 @@ extension Note {
             else {
                 return nil
         }
-        let colorRGBA:[String: CGFloat]? = json["color"] as? [String: CGFloat]
+        let colorRGBA:[String: CGFloat] = json["color"] as? [String: CGFloat] ?? [String: CGFloat]()
         let priority : Priority = Priority(rawValue: json["priority"] as? Int ?? Priority.medium.rawValue)!
-        let colorUi : UIColor = fromRGBAColor(color: colorRGBA!)
+        let colorUi : UIColor = fromRGBAColor(color: colorRGBA)
         let note : Note = Note(title, content, priority, uid, Date(timeIntervalSince1970: Double(autoRemoveDate)), colorUi)
         
         return note

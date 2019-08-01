@@ -1,6 +1,14 @@
+//
+//  RemoveNoteDBOperation.swift
+//  Note
+//
+//  Created by Pavel N on 7/30/19.
+//  Copyright © 2019 Pavel N. All rights reserved.
+//
+
 import Foundation
 
-class SaveNoteDBOperation: BaseDBOperation {
+class RemoveNoteDBOperation: BaseDBOperation {
     private let note: Note
     
     init(note: Note,
@@ -10,7 +18,7 @@ class SaveNoteDBOperation: BaseDBOperation {
     }
     
     override func main() {
-        notebook.add(note: note)
+        notebook.remove(with: note.uid)
         notebook.saveToFile()
         finish()
     }

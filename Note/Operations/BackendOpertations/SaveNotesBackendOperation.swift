@@ -7,8 +7,9 @@ enum SaveNotesBackendResult {
 
 class SaveNotesBackendOperation: BaseBackendOperation {
     var result: SaveNotesBackendResult?
-    
+    var notesarray:[Note] = []
     init(notes: [Note]) {
+        notesarray = notes
         super.init()
     }
     

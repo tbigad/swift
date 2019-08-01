@@ -7,17 +7,31 @@
 //
 
 import UIKit
+import Foundation
 
 class MainViewController: UIViewController {
 
     var noteBook = FileNotebook()
+    private let dbOperationQueue = OperationQueue()
+    private let backendOperationQueue = OperationQueue()
+    private let commonQueue =  OperationQueue()
     
     @IBOutlet var notesTableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         notesTableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "Note")
-        // Do any additional setup after loading the view.
+        
+        let loadNotesOperation = LoadNotesOperation(notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
+        loadNotesOperation.completionBlock = {
+            OperationQueue.main.addOperation {
+                self.notesTableView.reloadData()
+            }
+        }
+        commonQueue.addOperation(loadNotesOperation)
+        dbOperationQueue.maxConcurrentOperationCount = 1
+        backendOperationQueue.maxConcurrentOperationCount = 1
     }
     
 
@@ -33,7 +47,7 @@ class MainViewController: UIViewController {
         if let controller = segue.destination as? DitailsViewController, segue.identifier == "goToNoteDitails" {
             controller.delegate = self
             if let row = notesTableView.indexPathForSelectedRow {
-                controller.note = noteBook.notes[row.row]
+                controller.note = noteBook.notesArray[row.row]
                 notesTableView.deselectRow(at: row, animated: true)
             } else {
                 controller.note = nil
@@ -45,19 +59,23 @@ class MainViewController: UIViewController {
 extension MainViewController : UITableViewDataSource, UITableViewDelegate, DitailsViewDelegate {
     
     func dataDidChanged(data: Note?) {
-        if data != nil {
-            noteBook.add(note: data!)
-            notesTableView.reloadData()
+        if data != nil {            
+            let saveNotesOperation = SaveNoteOperation(note: data!, notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
+            saveNotesOperation.completionBlock = {
+                OperationQueue.main.addOperation{ self.notesTableView.reloadData() }
+            }
+            
+            commonQueue.addOperation(saveNotesOperation)
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-       return noteBook.notes.count
+       return noteBook.notesArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {        
         let cell = tableView.dequeueReusableCell(withIdentifier: "Note", for: indexPath) as! NoteTableViewCell
-        let note = noteBook.notes[indexPath.row]
+        let note = noteBook.notesArray[indexPath.row]
         cell.textNoteLabel.text = note.content
         cell.titleLabel.text = note.title
         cell.noteColor = note.color
@@ -67,12 +85,22 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            self.noteBook.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .fade)
+            let removeNoteOperation = RemoveNoteOperation(note: noteBook.notesArray[indexPath.row], notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
+            
+            removeNoteOperation.completionBlock =
+                {
+                    OperationQueue.main.addOperation(){
+                        tableView.beginUpdates()
+                        tableView.deleteRows(at: [indexPath], with: .automatic)
+                        tableView.endUpdates()
+                    }
+            }
+            
+            commonQueue.addOperation(removeNoteOperation)
         }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToNoteDitails", sender: noteBook.notes[indexPath.row])
+        performSegue(withIdentifier: "goToNoteDitails", sender: noteBook.notesArray[indexPath.row])
     }
 }

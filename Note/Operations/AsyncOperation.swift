@@ -32,7 +32,10 @@ class AsyncOperation: Operation {
     
     func finish() {
         willChangeValue(forKey: "isFinished")
+        willChangeValue(forKey: "isExecuting")
         _finished = true
+        _executing = false
         didChangeValue(forKey: "isFinished")
+        didChangeValue(forKey: "isExecuting")
     }
 }
