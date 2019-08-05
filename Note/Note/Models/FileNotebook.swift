@@ -10,9 +10,8 @@ import Foundation
 
 class FileNotebook {
     public func add(note: Note) {
-        if notesArray.contains(where: {$0.uid == note.uid}) {
-            let index = notesArray.firstIndex(where: {$0.uid == note.uid})
-            notesArray[index!] = note
+        if let index = notesArray.firstIndex(where: {$0.uid == note.uid}) {
+            notesArray[index] = note
         } else {
             notesArray.append(note)
         }
@@ -40,9 +39,8 @@ class FileNotebook {
         guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = docURL.appendingPathComponent("Notes.json")
         
-        let notes = notesArray.map{ $0.json }
+        let data = FileNotebook.toJsonData(notes: notesArray)
         do {
-            let data = try JSONSerialization.data(withJSONObject: notes, options: [])
             try data.write(to: fileURL, options: [])
             print("saved to json")
         } catch {
@@ -50,20 +48,38 @@ class FileNotebook {
         }
     }
     
-    
     public func loadFromFile(){
         // TODO: move path to init
         guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = docURL.appendingPathComponent("Notes.json")
         do {
             let data = try Data(contentsOf: fileURL, options: [])
-            guard let notes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] else { return }
-            notesArray = notes.map{ Note.parse(json: $0)! }
+            notesArray = FileNotebook.fromData(data: data)
         } catch {
             print(error.localizedDescription)
         }
     }
     
+    static func fromData(data: Data) -> NoteBook {
+        var arrayOfNotes:NoteBook = []
+        do {
+            guard let notes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] else { return NoteBook()}
+            arrayOfNotes = notes.compactMap{ Note.parse(json: $0)! }
+        } catch  {
+            print(error.localizedDescription)
+        }
+        return arrayOfNotes
+    }
+    static func toJsonData(notes: NoteBook) -> Data {
+        var data:Data = Data()
+        do {
+            let notes = notes.compactMap{ $0.json }
+            data = try JSONSerialization.data(withJSONObject: notes, options: [])
+        } catch {
+            print(error.localizedDescription)
+        }
+        return data
+    }
     
     private func indexByUId(_ uid: String) -> Int {
         for (index,note) in notesArray.enumerated() {
@@ -73,5 +89,5 @@ class FileNotebook {
         }
         return -1
     }
-    private(set) var notesArray : [Note] = []
+    private(set) var notesArray : NoteBook = []
 }

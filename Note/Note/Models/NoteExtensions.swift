@@ -5,10 +5,9 @@ extension Note {
         guard let uid = json["uid"] as? String,
             let content = json["content"] as? String,
             let title = json["title"] as? String,
-            let autoRemoveDate = json["autoRemoveDate"] as? Int//
-            else {
-                return nil
-        }
+            let autoRemoveDate = json["autoRemoveDate"] as? Int
+            else {return nil}
+        
         let colorRGBA:[String: CGFloat] = json["color"] as? [String: CGFloat] ?? [String: CGFloat]()
         let priority : Priority = Priority(rawValue: json["priority"] as? Int ?? Priority.medium.rawValue)!
         let colorUi : UIColor = fromRGBAColor(color: colorRGBA)
@@ -55,71 +54,5 @@ extension Note {
                                        blue: color["B"] ?? 0,
                                        alpha: color["A"] ?? 0)
         return dColor
-    }
-    
-    static func simpleData() -> [Note] {
-        var data:[Note] = [Note]()
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple Title", "Text TextText TextText TextText TextText TextText TextText Text"))
-        data.append(Note("Simple LongLongLongLongLongLongLongLongLong Title", "Text TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText TextText Text"))
-
-        
-        return data
-    }
-    
+    }    
 }

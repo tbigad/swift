@@ -30,19 +30,17 @@ class RemoveNoteOperation : AsyncOperation {
         
         super.init()
         
-        let adapterOperation = BlockOperation() { [unowned removeFromDbOperation, unowned saveBackendOperation] in
+        let connectOperation = BlockOperation() { [unowned removeFromDbOperation, unowned saveBackendOperation] in
             saveBackendOperation.notesarray = removeFromDbOperation.notebook.notesArray
         }
         
-        adapterOperation.addDependency(removeFromDbOperation)
-        
-        saveBackendOperation.addDependency(adapterOperation)
-        
+        connectOperation.addDependency(removeFromDbOperation)        
+        saveBackendOperation.addDependency(connectOperation)
         addDependency(removeFromDbOperation)
         addDependency(saveBackendOperation)
         
         dbQueue.addOperation(removeFromDbOperation)
-        dbQueue.addOperation(adapterOperation)
+        dbQueue.addOperation(connectOperation)
         backendQueue.addOperation(saveBackendOperation)
     }
     

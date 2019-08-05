@@ -26,3 +26,5 @@ struct Note {
         priority = prior
     }
 }
+
+typealias NoteBook = [Note]
