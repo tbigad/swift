@@ -12,7 +12,20 @@
 		C0586F4AEE353244B5D3C1A5 /* Pods_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D770BCCC270E435645DB9 /* Pods_NoteUITests.framework */; };
 		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
 		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
-		F37543EB22EF91360007F413 /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37543EA22EF91360007F413 /* LoadNotesBackendOperation.swift */; };
+		F35C355422F965BE0034E20A /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */; };
+		F35C355522F965BE0034E20A /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */; };
+		F35C355622F965BE0034E20A /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354A22F965BE0034E20A /* BaseDBOperation.swift */; };
+		F35C355722F965BE0034E20A /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354B22F965BE0034E20A /* RemoveNoteDBOperation.swift */; };
+		F35C355822F965BE0034E20A /* SaveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354C22F965BE0034E20A /* SaveNoteOperation.swift */; };
+		F35C355922F965BE0034E20A /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354D22F965BE0034E20A /* LoadNotesOperation.swift */; };
+		F35C355A22F965BE0034E20A /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354E22F965BE0034E20A /* AsyncOperation.swift */; };
+		F35C355B22F965BE0034E20A /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354F22F965BE0034E20A /* RemoveNoteOperation.swift */; };
+		F35C355C22F965BE0034E20A /* LoadNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C355122F965BE0034E20A /* LoadNotesBackendOperation.swift */; };
+		F35C355D22F965BE0034E20A /* BaseBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C355222F965BE0034E20A /* BaseBackendOperation.swift */; };
+		F35C355E22F965BE0034E20A /* SaveNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C355322F965BE0034E20A /* SaveNotesBackendOperation.swift */; };
+		F35C356022F965D50034E20A /* AuthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C355F22F965D40034E20A /* AuthViewController.swift */; };
+		F35C356222F968940034E20A /* UserSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C356122F968940034E20A /* UserSettings.swift */; };
+		F35C356422F9B7E10034E20A /* GitHubGistsStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C356322F9B7E10034E20A /* GitHubGistsStruct.swift */; };
 		F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */; };
 		F3A1C14322DC970C00B07862 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14222DC970C00B07862 /* MainViewController.swift */; };
 		F3A1C14522DCC62D00B07862 /* DitailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14422DCC62D00B07862 /* DitailsViewController.swift */; };
@@ -23,12 +36,6 @@
 		F3A1C15022E1C19400B07862 /* ImagesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C14F22E1C19400B07862 /* ImagesListViewController.swift */; };
 		F3A1C15222E1D59200B07862 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C15122E1D59200B07862 /* ImagePicker.swift */; };
 		F3A1C15422E1DE5B00B07862 /* ImageScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3A1C15322E1DE5B00B07862 /* ImageScrollViewController.swift */; };
-		F3B4250422E9E735000D31EF /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B424FD22E9E735000D31EF /* SaveNoteDBOperation.swift */; };
-		F3B4250522E9E735000D31EF /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B424FE22E9E735000D31EF /* BaseDBOperation.swift */; };
-		F3B4250622E9E735000D31EF /* SaveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B424FF22E9E735000D31EF /* SaveNoteOperation.swift */; };
-		F3B4250722E9E735000D31EF /* AsyncOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4250022E9E735000D31EF /* AsyncOperation.swift */; };
-		F3B4250822E9E735000D31EF /* BaseBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4250222E9E735000D31EF /* BaseBackendOperation.swift */; };
-		F3B4250922E9E735000D31EF /* SaveNotesBackendOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B4250322E9E735000D31EF /* SaveNotesBackendOperation.swift */; };
 		F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */; };
 		F3BEE8D322C12ECF00286D3E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D122C12ECF00286D3E /* Main.storyboard */; };
 		F3BEE8D522C12ED100286D3E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3BEE8D422C12ED100286D3E /* Assets.xcassets */; };
@@ -38,10 +45,6 @@
 		F3BEE8FF22C12EFC00286D3E /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8FC22C12EFC00286D3E /* Note.swift */; };
 		F3BEE90022C12EFC00286D3E /* NoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8FD22C12EFC00286D3E /* NoteExtensions.swift */; };
 		F3BEE90122C12EFC00286D3E /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEE8FE22C12EFC00286D3E /* FileNotebook.swift */; };
-		F3D8786C22F0B5770022647A /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D8786B22F0B5770022647A /* LoadNotesDBOperation.swift */; };
-		F3D8786E22F0BB360022647A /* RemoveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D8786D22F0BB360022647A /* RemoveNoteDBOperation.swift */; };
-		F3D8787022F22CCA0022647A /* LoadNotesOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D8786F22F22CCA0022647A /* LoadNotesOperation.swift */; };
-		F3D8787422F22D210022647A /* RemoveNoteOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3D8787322F22D210022647A /* RemoveNoteOperation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,7 +75,20 @@
 		E25ED3EA8964A9ED415A00CE /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
 		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
 		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
-		F37543EA22EF91360007F413 /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
+		F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
+		F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
+		F35C354A22F965BE0034E20A /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
+		F35C354B22F965BE0034E20A /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
+		F35C354C22F965BE0034E20A /* SaveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteOperation.swift; sourceTree = "<group>"; };
+		F35C354D22F965BE0034E20A /* LoadNotesOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
+		F35C354E22F965BE0034E20A /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
+		F35C354F22F965BE0034E20A /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
+		F35C355122F965BE0034E20A /* LoadNotesBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesBackendOperation.swift; sourceTree = "<group>"; };
+		F35C355222F965BE0034E20A /* BaseBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBackendOperation.swift; sourceTree = "<group>"; };
+		F35C355322F965BE0034E20A /* SaveNotesBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNotesBackendOperation.swift; sourceTree = "<group>"; };
+		F35C355F22F965D40034E20A /* AuthViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthViewController.swift; sourceTree = "<group>"; };
+		F35C356122F968940034E20A /* UserSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettings.swift; sourceTree = "<group>"; };
+		F35C356322F9B7E10034E20A /* GitHubGistsStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GitHubGistsStruct.swift; sourceTree = "<group>"; };
 		F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		F3A1C14222DC970C00B07862 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F3A1C14422DCC62D00B07862 /* DitailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DitailsViewController.swift; sourceTree = "<group>"; };
@@ -83,12 +99,6 @@
 		F3A1C14F22E1C19400B07862 /* ImagesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagesListViewController.swift; sourceTree = "<group>"; };
 		F3A1C15122E1D59200B07862 /* ImagePicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		F3A1C15322E1DE5B00B07862 /* ImageScrollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageScrollViewController.swift; sourceTree = "<group>"; };
-		F3B424FD22E9E735000D31EF /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
-		F3B424FE22E9E735000D31EF /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
-		F3B424FF22E9E735000D31EF /* SaveNoteOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteOperation.swift; sourceTree = "<group>"; };
-		F3B4250022E9E735000D31EF /* AsyncOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AsyncOperation.swift; sourceTree = "<group>"; };
-		F3B4250222E9E735000D31EF /* BaseBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseBackendOperation.swift; sourceTree = "<group>"; };
-		F3B4250322E9E735000D31EF /* SaveNotesBackendOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNotesBackendOperation.swift; sourceTree = "<group>"; };
 		F3BEE8CA22C12ECF00286D3E /* Note.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Note.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3BEE8CD22C12ECF00286D3E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F3BEE8D222C12ECF00286D3E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -104,10 +114,6 @@
 		F3BEE8FC22C12EFC00286D3E /* Note.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		F3BEE8FD22C12EFC00286D3E /* NoteExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NoteExtensions.swift; sourceTree = "<group>"; };
 		F3BEE8FE22C12EFC00286D3E /* FileNotebook.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
-		F3D8786B22F0B5770022647A /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
-		F3D8786D22F0BB360022647A /* RemoveNoteDBOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteDBOperation.swift; sourceTree = "<group>"; };
-		F3D8786F22F22CCA0022647A /* LoadNotesOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadNotesOperation.swift; sourceTree = "<group>"; };
-		F3D8787322F22D210022647A /* RemoveNoteOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveNoteOperation.swift; sourceTree = "<group>"; };
 		F92FFC88CA2B864C7A77348A /* Pods_NoteTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NoteTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -165,6 +171,7 @@
 		F328FF1F22D4D3EC00A349A0 /* ui */ = {
 			isa = PBXGroup;
 			children = (
+				F35C355F22F965D40034E20A /* AuthViewController.swift */,
 				F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */,
 				F328FF2222D4F7E000A349A0 /* ColorPicker.swift */,
 				F3A1C14622DD0D7F00B07862 /* NoteTableViewCell.swift */,
@@ -174,6 +181,40 @@
 				F3A1C15122E1D59200B07862 /* ImagePicker.swift */,
 			);
 			path = ui;
+			sourceTree = "<group>";
+		};
+		F35C354622F965BE0034E20A /* Operations */ = {
+			isa = PBXGroup;
+			children = (
+				F35C354722F965BE0034E20A /* DBOperations */,
+				F35C354C22F965BE0034E20A /* SaveNoteOperation.swift */,
+				F35C354E22F965BE0034E20A /* AsyncOperation.swift */,
+				F35C354D22F965BE0034E20A /* LoadNotesOperation.swift */,
+				F35C354F22F965BE0034E20A /* RemoveNoteOperation.swift */,
+				F35C355022F965BE0034E20A /* BackendOpertations */,
+			);
+			path = Operations;
+			sourceTree = "<group>";
+		};
+		F35C354722F965BE0034E20A /* DBOperations */ = {
+			isa = PBXGroup;
+			children = (
+				F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */,
+				F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */,
+				F35C354A22F965BE0034E20A /* BaseDBOperation.swift */,
+				F35C354B22F965BE0034E20A /* RemoveNoteDBOperation.swift */,
+			);
+			path = DBOperations;
+			sourceTree = "<group>";
+		};
+		F35C355022F965BE0034E20A /* BackendOpertations */ = {
+			isa = PBXGroup;
+			children = (
+				F35C355122F965BE0034E20A /* LoadNotesBackendOperation.swift */,
+				F35C355222F965BE0034E20A /* BaseBackendOperation.swift */,
+				F35C355322F965BE0034E20A /* SaveNotesBackendOperation.swift */,
+			);
+			path = BackendOpertations;
 			sourceTree = "<group>";
 		};
 		F3A1C14E22E1C13200B07862 /* views */ = {
@@ -186,40 +227,6 @@
 				F3A1C15322E1DE5B00B07862 /* ImageScrollViewController.swift */,
 			);
 			path = views;
-			sourceTree = "<group>";
-		};
-		F3B424FB22E9E735000D31EF /* Operations */ = {
-			isa = PBXGroup;
-			children = (
-				F3B4250122E9E735000D31EF /* BackendOpertations */,
-				F3B424FC22E9E735000D31EF /* DBOperations */,
-				F3B4250022E9E735000D31EF /* AsyncOperation.swift */,
-				F3B424FF22E9E735000D31EF /* SaveNoteOperation.swift */,
-				F3D8786F22F22CCA0022647A /* LoadNotesOperation.swift */,
-				F3D8787322F22D210022647A /* RemoveNoteOperation.swift */,
-			);
-			path = Operations;
-			sourceTree = SOURCE_ROOT;
-		};
-		F3B424FC22E9E735000D31EF /* DBOperations */ = {
-			isa = PBXGroup;
-			children = (
-				F3B424FE22E9E735000D31EF /* BaseDBOperation.swift */,
-				F3B424FD22E9E735000D31EF /* SaveNoteDBOperation.swift */,
-				F3D8786B22F0B5770022647A /* LoadNotesDBOperation.swift */,
-				F3D8786D22F0BB360022647A /* RemoveNoteDBOperation.swift */,
-			);
-			path = DBOperations;
-			sourceTree = "<group>";
-		};
-		F3B4250122E9E735000D31EF /* BackendOpertations */ = {
-			isa = PBXGroup;
-			children = (
-				F3B4250222E9E735000D31EF /* BaseBackendOperation.swift */,
-				F37543EA22EF91360007F413 /* LoadNotesBackendOperation.swift */,
-				F3B4250322E9E735000D31EF /* SaveNotesBackendOperation.swift */,
-			);
-			path = BackendOpertations;
 			sourceTree = "<group>";
 		};
 		F3BEE8C122C12ECF00286D3E = {
@@ -247,7 +254,7 @@
 		F3BEE8CC22C12ECF00286D3E /* Note */ = {
 			isa = PBXGroup;
 			children = (
-				F3B424FB22E9E735000D31EF /* Operations */,
+				F35C354622F965BE0034E20A /* Operations */,
 				F3A1C14E22E1C13200B07862 /* views */,
 				F328FF1F22D4D3EC00A349A0 /* ui */,
 				F3BEE8FB22C12EDB00286D3E /* Models */,
@@ -281,9 +288,11 @@
 		F3BEE8FB22C12EDB00286D3E /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F35C356322F9B7E10034E20A /* GitHubGistsStruct.swift */,
 				F3BEE8FE22C12EFC00286D3E /* FileNotebook.swift */,
 				F3BEE8FC22C12EFC00286D3E /* Note.swift */,
 				F3BEE8FD22C12EFC00286D3E /* NoteExtensions.swift */,
+				F35C356122F968940034E20A /* UserSettings.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -516,30 +525,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3B4250822E9E735000D31EF /* BaseBackendOperation.swift in Sources */,
 				F3A1C15222E1D59200B07862 /* ImagePicker.swift in Sources */,
+				F35C355E22F965BE0034E20A /* SaveNotesBackendOperation.swift in Sources */,
+				F35C355D22F965BE0034E20A /* BaseBackendOperation.swift in Sources */,
 				F3BEE90122C12EFC00286D3E /* FileNotebook.swift in Sources */,
-				F3B4250522E9E735000D31EF /* BaseDBOperation.swift in Sources */,
 				F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */,
-				F3D8786E22F0BB360022647A /* RemoveNoteDBOperation.swift in Sources */,
+				F35C355722F965BE0034E20A /* RemoveNoteDBOperation.swift in Sources */,
 				F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */,
 				F3A1C14822DD0D7F00B07862 /* NoteTableViewCell.swift in Sources */,
-				F3D8787422F22D210022647A /* RemoveNoteOperation.swift in Sources */,
+				F35C356022F965D50034E20A /* AuthViewController.swift in Sources */,
+				F35C355522F965BE0034E20A /* LoadNotesDBOperation.swift in Sources */,
+				F35C355B22F965BE0034E20A /* RemoveNoteOperation.swift in Sources */,
 				F3A1C15422E1DE5B00B07862 /* ImageScrollViewController.swift in Sources */,
 				F3BEE90022C12EFC00286D3E /* NoteExtensions.swift in Sources */,
+				F35C356222F968940034E20A /* UserSettings.swift in Sources */,
 				F3A1C14522DCC62D00B07862 /* DitailsViewController.swift in Sources */,
+				F35C355822F965BE0034E20A /* SaveNoteOperation.swift in Sources */,
 				F3A1C15022E1C19400B07862 /* ImagesListViewController.swift in Sources */,
-				F3B4250922E9E735000D31EF /* SaveNotesBackendOperation.swift in Sources */,
-				F3D8787022F22CCA0022647A /* LoadNotesOperation.swift in Sources */,
-				F3B4250422E9E735000D31EF /* SaveNoteDBOperation.swift in Sources */,
+				F35C355422F965BE0034E20A /* SaveNoteDBOperation.swift in Sources */,
+				F35C355A22F965BE0034E20A /* AsyncOperation.swift in Sources */,
+				F35C355922F965BE0034E20A /* LoadNotesOperation.swift in Sources */,
+				F35C355622F965BE0034E20A /* BaseDBOperation.swift in Sources */,
 				F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */,
 				F3A1C14322DC970C00B07862 /* MainViewController.swift in Sources */,
-				F3B4250622E9E735000D31EF /* SaveNoteOperation.swift in Sources */,
 				F3A1C14C22E1BB3300B07862 /* ImagesCollectionViewCells.swift in Sources */,
-				F3D8786C22F0B5770022647A /* LoadNotesDBOperation.swift in Sources */,
+				F35C356422F9B7E10034E20A /* GitHubGistsStruct.swift in Sources */,
+				F35C355C22F965BE0034E20A /* LoadNotesBackendOperation.swift in Sources */,
 				F37CC2E122D5C87400D509E0 /* ColorPickerViewController.swift in Sources */,
-				F37543EB22EF91360007F413 /* LoadNotesBackendOperation.swift in Sources */,
-				F3B4250722E9E735000D31EF /* AsyncOperation.swift in Sources */,
 				F3BEE8FF22C12EFC00286D3E /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

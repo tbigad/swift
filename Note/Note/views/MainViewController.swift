@@ -23,13 +23,7 @@ class MainViewController: UIViewController {
 
         notesTableView.register(UINib(nibName: "NoteTableViewCell", bundle: nil), forCellReuseIdentifier: "Note")
         
-        let loadNotesOperation = LoadNotesOperation(notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
-        loadNotesOperation.completionBlock = {
-            OperationQueue.main.addOperation {
-                self.notesTableView.reloadData()
-            }
-        }
-        commonQueue.addOperation(loadNotesOperation)
+        updateData()
         dbOperationQueue.maxConcurrentOperationCount = 1
         backendOperationQueue.maxConcurrentOperationCount = 1
     }
@@ -54,9 +48,35 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    private func requestToken() {
+        let requestTokenViewController = AuthViewController()
+        requestTokenViewController.delegate = self
+        present(requestTokenViewController, animated: false, completion: nil)
+    }
+    
+    @objc
+    private func updateData() {
+        if !UserSettings.shared.gitHubLoginedIn {
+            requestToken()
+            return
+        }
+        let loadNotesOperation = LoadNotesOperation(notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
+        loadNotesOperation.completionBlock = {
+            OperationQueue.main.addOperation {
+                self.notesTableView.reloadData()
+            }
+        }
+        commonQueue.addOperation(loadNotesOperation)
+    }
 }
 
-extension MainViewController : UITableViewDataSource, UITableViewDelegate, DitailsViewDelegate {
+extension MainViewController : UITableViewDataSource, UITableViewDelegate, DitailsViewDelegate, AuthViewControllerDelegate {
+    
+    func handleTokenChanged(token: String) {
+        UserSettings.shared.gitHubToken = token
+        updateData()
+    }
     
     func dataDidChanged(data: Note?) {
         if data != nil {            
