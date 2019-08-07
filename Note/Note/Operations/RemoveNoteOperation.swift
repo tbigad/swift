@@ -26,16 +26,16 @@ class RemoveNoteOperation : AsyncOperation {
         
         removeFromDbOperation = RemoveNoteDBOperation(note: note, notebook: notebook)
         
-        saveBackendOperation = SaveNotesBackendOperation(notes: [])
+        saveBackendOperation = SaveNotesBackendOperation(notebook: notebook)
         
         super.init()
         
         let connectOperation = BlockOperation() { [unowned removeFromDbOperation, unowned saveBackendOperation] in
-            saveBackendOperation.notesarray = removeFromDbOperation.notebook.notesArray
+            saveBackendOperation.notes = removeFromDbOperation.notebook
         }
         
         connectOperation.addDependency(removeFromDbOperation)        
-        saveBackendOperation.addDependency(connectOperation)
+        saveBackendOperation.addDependency(removeFromDbOperation)
         addDependency(removeFromDbOperation)
         addDependency(saveBackendOperation)
         

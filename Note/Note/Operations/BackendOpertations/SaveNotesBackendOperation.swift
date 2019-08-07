@@ -7,10 +7,11 @@ enum SaveNotesBackendResult {
 
 class SaveNotesBackendOperation: BaseBackendOperation {
     var result: SaveNotesBackendResult?
-    var notesarray:NoteBook = []
-    private let semaphore = DispatchSemaphore(value: 0)
-    init(notes: NoteBook) {
-        notesarray = notes
+    var notes:FileNotebook?
+    
+    
+    init(notebook: FileNotebook) {
+        notes = notebook
         super.init()
         
         if UserSettings.shared.gitHubLoginedIn {
@@ -19,7 +20,8 @@ class SaveNotesBackendOperation: BaseBackendOperation {
         }
     }
     
-    func postGist(data: Data){
+    private let semaphore = DispatchSemaphore(value: 0)
+    private func postGist(data: Data){
         let description = "Save Notes"
         let isPublic = false
         let file1 = FileUpload(content: String(data: data, encoding: .utf8)!)
@@ -57,7 +59,7 @@ class SaveNotesBackendOperation: BaseBackendOperation {
         }
         task.resume()
     }
-    func patchGist(data:Data){
+    private func patchGist(data:Data){
         let description = "Save Notes"
         let isPublic = false
         let file1 = FileUpload(content: String(data: data, encoding: .utf8)!)
@@ -97,7 +99,7 @@ class SaveNotesBackendOperation: BaseBackendOperation {
     }
     
     override func main() {
-        let json = FileNotebook.toJsonData(notes: notesarray)
+        let json = FileNotebook.toJsonData(notes: notes!.notesArray)
         if UserSettings.shared.gitHubGistID.isEmpty {
             postGist(data: json)
         } else {
