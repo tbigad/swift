@@ -79,7 +79,8 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
     }
     
     func dataDidChanged(data: Note?) {
-        if data != nil {            
+        if data != nil {
+            self.notesTableView.reloadData()
             let saveNotesOperation = SaveNoteOperation(note: data!, notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
             saveNotesOperation.completionBlock = {
                 OperationQueue.main.addOperation{ self.notesTableView.reloadData() }

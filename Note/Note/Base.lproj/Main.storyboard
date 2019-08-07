@@ -379,6 +379,7 @@
                         <outlet property="colorButtonsStack" destination="iZx-ry-5Hn" id="ry5-cB-1j1"/>
                         <outlet property="customColorBtn" destination="BK1-GV-IM7" id="tXf-no-iLj"/>
                         <outlet property="dataPicker" destination="9Rg-Mk-vaC" id="2q1-hT-VvB"/>
+                        <outlet property="swith" destination="YVI-er-Ex5" id="rRN-Fa-RVF"/>
                         <outlet property="textField" destination="Dmo-x8-zqT" id="w1E-ZO-aye"/>
                         <outlet property="titleField" destination="oFD-id-MRn" id="7AN-53-5pH"/>
                         <segue destination="xgL-aL-abm" kind="show" identifier="goToCustomColor" id="iRt-gW-dA0"/>

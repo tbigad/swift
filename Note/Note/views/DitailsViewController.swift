@@ -19,6 +19,7 @@ class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     @IBOutlet var customColorBtn: SelectColorButton!
     @IBOutlet var dataPicker: UIDatePicker!
     @IBOutlet var textField: UITextView!
+    @IBOutlet var swith: UISwitch!
     
     var note:Note?
     var delegate : DitailsViewDelegate?
@@ -50,6 +51,10 @@ class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDe
         selectedColor = note?.color ?? .white
         if ((note?.autoRemoveDate) != nil) {
             dataPicker.date = (note?.autoRemoveDate)!
+            swith.isOn = true
+        } else {
+            dataPicker.isHidden = true
+            swith.isOn = false
         }
         textField.text = note?.content
         titleField.text = note?.title
@@ -60,8 +65,11 @@ class DitailsViewController: UIViewController, UITextViewDelegate, UITextFieldDe
     }
 
     override func viewWillDisappear(_ animated: Bool) {
-        let n = Note(titleField.text!, textField.text, note!.priority,note!.uid , dataPicker.date, selectedColor)
-        delegate?.dataDidChanged(data: n)
+        let date = !dataPicker.isHidden ? dataPicker.date : nil;
+        let n = Note(titleField.text!, textField.text, note!.priority,note!.uid , date, selectedColor)
+        if !n.content.isEmpty {
+            delegate?.dataDidChanged(data: n)
+        }
     }
     
     @IBAction func unwindToDitalis(_ unwindSegue: UIStoryboardSegue) {

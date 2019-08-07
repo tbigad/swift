@@ -171,7 +171,6 @@
 		F328FF1F22D4D3EC00A349A0 /* ui */ = {
 			isa = PBXGroup;
 			children = (
-				F35C355F22F965D40034E20A /* AuthViewController.swift */,
 				F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */,
 				F328FF2222D4F7E000A349A0 /* ColorPicker.swift */,
 				F3A1C14622DD0D7F00B07862 /* NoteTableViewCell.swift */,
@@ -186,12 +185,12 @@
 		F35C354622F965BE0034E20A /* Operations */ = {
 			isa = PBXGroup;
 			children = (
+				F35C355022F965BE0034E20A /* BackendOpertations */,
 				F35C354722F965BE0034E20A /* DBOperations */,
-				F35C354C22F965BE0034E20A /* SaveNoteOperation.swift */,
 				F35C354E22F965BE0034E20A /* AsyncOperation.swift */,
+				F35C354C22F965BE0034E20A /* SaveNoteOperation.swift */,
 				F35C354D22F965BE0034E20A /* LoadNotesOperation.swift */,
 				F35C354F22F965BE0034E20A /* RemoveNoteOperation.swift */,
-				F35C355022F965BE0034E20A /* BackendOpertations */,
 			);
 			path = Operations;
 			sourceTree = "<group>";
@@ -225,6 +224,7 @@
 				F37CC2E022D5C87400D509E0 /* ColorPickerViewController.swift */,
 				F3A1C14F22E1C19400B07862 /* ImagesListViewController.swift */,
 				F3A1C15322E1DE5B00B07862 /* ImageScrollViewController.swift */,
+				F35C355F22F965D40034E20A /* AuthViewController.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
