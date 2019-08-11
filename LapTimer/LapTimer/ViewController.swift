@@ -67,10 +67,20 @@ class ViewController: UIViewController {
             }
         })
     }
-    func fetchData() {
+    
+    func setupFetchedResultsController(for context: NSManagedObjectContext){
+        let sortDescriptor = NSSortDescriptor(key: "time", ascending: false)
         let request = NSFetchRequest<Laps>(entityName: "Laps")
+        request.sortDescriptors = [sortDescriptor]
+        
+        fetchedResultsController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController?.delegate = self
+    }
+    
+    func fetchData() {
+        
         do {
-            laps = try context.fetch(request)
+            try fetchedResultsController?.performFetch()
         } catch {
             return
         }
@@ -93,33 +103,42 @@ class ViewController: UIViewController {
     }
     
     private let cellIdentifier = "TimerCell"
-    fileprivate var laps = [Laps] ()
     private var startTime:Date?
     private var context:NSManagedObjectContext!
     {
         didSet{
-            context.reset()
+            setupFetchedResultsController(for: context)
             fetchData()
         }
     }
     private var isRunning:Bool = false
+    private var fetchedResultsController: NSFetchedResultsController<Laps>?
 }
 
 extension ViewController : UITableViewDelegate {}
 extension ViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return laps.count
+        guard let sections = self.fetchedResultsController?.sections else {
+            return 0
+        }
+        return sections[section].numberOfObjects
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath)
-        let time = laps[indexPath.row].time
+        guard let lap = fetchedResultsController?.object(at: indexPath) else {
+            return cell
+        }
+        
+        
+        let time = lap.time
         cell.textLabel?.text = String(time.stringFromTimeInterval())
         return cell
     }
 }
-
+extension ViewController : NSFetchedResultsControllerDelegate {
+    
+}
 extension TimeInterval{
     
     func stringFromTimeInterval() -> String {
