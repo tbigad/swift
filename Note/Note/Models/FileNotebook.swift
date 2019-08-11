@@ -64,7 +64,10 @@ class FileNotebook {
         var arrayOfNotes:NoteBook = []
         do {
             guard let notes = try JSONSerialization.jsonObject(with: data, options: []) as? [[String:Any]] else { return NoteBook()}
-            arrayOfNotes = notes.compactMap{ Note.parse(json: $0)! }
+            let parsed =  notes.compactMap{  Note.parse(json: $0) }
+            if !parsed.isEmpty {
+                arrayOfNotes = parsed
+            }
         } catch  {
             print(error.localizedDescription)
         }
