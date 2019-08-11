@@ -22,10 +22,13 @@ class ViewController: UIViewController {
         tableView.refreshControl?.beginRefreshing()
         // Do any additional setup after loading the view.
         createContainer{ container in
-            self.context = container.viewContext
+            self.mainContext = container.viewContext
+            self.backgroundContext = container.newBackgroundContext()
         }
         timeLabel.isHidden = true
         lapBtn.isHidden = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave(notification:)), name: Notification.Name.NSManagedObjectContextDidSave, object: nil)
     }
     
     
@@ -45,19 +48,28 @@ class ViewController: UIViewController {
             fetchData()
         }
     }
-    @IBAction func lapBtnPressed(_ sender: Any) {
-        guard let ctx = self.context else {return}
-        let laps = NSEntityDescription.insertNewObject(forEntityName: "Laps", into: ctx) as? Laps
-        let diff = Date().timeIntervalSince(startTime!)
-        do {
-            laps?.time = diff
-            try ctx.save()
-        } catch  {
-            print("save faled")
+    @IBAction func lapBtnPressed(_ sender: Any) {       
+        DispatchQueue.global(qos: .userInitiated).async {
+            [weak self] in
+            guard let sself = self else {return}
+            let lap = Laps(context: sself.backgroundContext)
+            let diff = Date().timeIntervalSince(sself.startTime!)
+            lap.time = diff
+            
+            sself.backgroundContext.performAndWait {
+                do {
+                    try sself.backgroundContext.save()
+                }
+                catch { print("sself.backgroundContext.save() Failed: " + error.localizedDescription) }
+            }
         }
-        fetchData()
     }
     
+    @objc func managedObjectContextDidSave(notification:Notification){
+        mainContext.perform {
+            self.mainContext.mergeChanges(fromContextDidSave: notification)
+        }
+    }
     func createContainer(completition: @escaping (NSPersistentContainer) -> () ) {
         let container = NSPersistentContainer(name: "LapsTimeModel")
         container.loadPersistentStores(completionHandler: {_, error in
@@ -95,8 +107,8 @@ class ViewController: UIViewController {
         let batchDeleteRequest = NSBatchDeleteRequest(fetchRequest: fetchRequest)
         
         do {
-            try context.execute(batchDeleteRequest)
-            try context.save()
+            try mainContext.execute(batchDeleteRequest)
+            try mainContext.save()
         } catch {
             // Error Handling
         }
@@ -104,10 +116,11 @@ class ViewController: UIViewController {
     
     private let cellIdentifier = "TimerCell"
     private var startTime:Date?
-    private var context:NSManagedObjectContext!
+    private var mainContext:NSManagedObjectContext!
+    private var backgroundContext:NSManagedObjectContext!
     {
         didSet{
-            setupFetchedResultsController(for: context)
+            setupFetchedResultsController(for: mainContext)
             fetchData()
         }
     }
@@ -137,7 +150,29 @@ extension ViewController : UITableViewDataSource {
     }
 }
 extension ViewController : NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
     
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .delete:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+        case .move:
+            tableView.deleteRows(at: [indexPath!], with: .automatic)
+            tableView.insertRows(at: [newIndexPath!], with: .automatic)
+        case .update:
+            tableView.reloadRows(at: [indexPath!], with: .automatic)
+            
+        default: break
+            
+        }
+    }
 }
 extension TimeInterval{
     
