@@ -26,7 +26,6 @@ class ViewController: UIViewController {
             self.backgroundContext = container.newBackgroundContext()
         }
         timeLabel.isHidden = true
-        lapBtn.isHidden = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(managedObjectContextDidSave(notification:)), name: Notification.Name.NSManagedObjectContextDidSave, object: nil)
     }
@@ -35,20 +34,37 @@ class ViewController: UIViewController {
     @IBAction func startBtnPressed(_ sender: UIButton) {
         isRunning = !isRunning
         timeLabel.isHidden = !isRunning
-        lapBtn.isHidden = !isRunning
         if isRunning
         {
             startTime = Date()
             stopBtn.setTitle("Stop", for: .normal)
+            lapBtn.setTitle("Lap", for: .normal)
+            createTimer()
         }
         else
         {
             stopBtn.setTitle("Start", for: .normal)
+            lapBtn.setTitle("Clear", for: .normal)
+            cancelTimer()
+        }
+    }
+    @IBAction func lapBtnPressed(_ sender: Any) {
+        
+        if isRunning {
+            addResult()
+        } else {
             removeData()
             fetchData()
         }
     }
-    @IBAction func lapBtnPressed(_ sender: Any) {       
+    
+    @objc func managedObjectContextDidSave(notification:Notification){
+        mainContext.perform {
+            self.mainContext.mergeChanges(fromContextDidSave: notification)
+        }
+    }
+    
+    func addResult(){
         DispatchQueue.global(qos: .userInitiated).async {
             [weak self] in
             guard let sself = self else {return}
@@ -65,11 +81,6 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func managedObjectContextDidSave(notification:Notification){
-        mainContext.perform {
-            self.mainContext.mergeChanges(fromContextDidSave: notification)
-        }
-    }
     func createContainer(completition: @escaping (NSPersistentContainer) -> () ) {
         let container = NSPersistentContainer(name: "LapsTimeModel")
         container.loadPersistentStores(completionHandler: {_, error in
@@ -114,6 +125,29 @@ class ViewController: UIViewController {
         }
     }
     
+    private func createTimer(){
+        timerInterval = 0.0
+        timeLabel.text = timerInterval.stringFromTimeInterval()
+        if timer == nil {
+            timer = Timer.scheduledTimer(timeInterval: 0.1,
+                                         target: self,
+                                         selector: #selector(updateTimer),
+                                         userInfo: nil,
+                                         repeats: true)
+        }
+    }
+    private func cancelTimer(){
+        timer?.invalidate()
+        timer = nil
+    }
+    @objc func updateTimer() {
+        guard let timer = self.timer else {
+            return
+        }
+        timerInterval += timer.timeInterval
+        timeLabel.text = timerInterval.stringFromTimeInterval()
+    }
+    
     private let cellIdentifier = "TimerCell"
     private var startTime:Date?
     private var mainContext:NSManagedObjectContext!
@@ -126,6 +160,8 @@ class ViewController: UIViewController {
     }
     private var isRunning:Bool = false
     private var fetchedResultsController: NSFetchedResultsController<Laps>?
+    private var timer: Timer?
+    private var timerInterval:TimeInterval = 0.0
 }
 
 extension ViewController : UITableViewDelegate {}

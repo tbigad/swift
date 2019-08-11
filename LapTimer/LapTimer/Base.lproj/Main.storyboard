@@ -63,7 +63,7 @@
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="S3g-TJ-fu7">
                                         <rect key="frame" x="249.5" y="0.0" width="124.5" height="30"/>
-                                        <state key="normal" title="Lap"/>
+                                        <state key="normal" title="Clear"/>
                                         <connections>
                                             <action selector="lapBtnPressed:" destination="BYZ-38-t0r" eventType="touchDown" id="rGx-vw-bx8"/>
                                         </connections>
