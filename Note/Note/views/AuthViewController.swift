@@ -40,6 +40,7 @@ final class AuthViewController: UIViewController {
         
         timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: {_ in
             DispatchQueue.main.async {
+                self.info.token = ""
                 self.dismiss(animated: true, completion: nil)
             }
         })

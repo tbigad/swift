@@ -100,8 +100,7 @@ class ViewController: UIViewController {
         fetchedResultsController?.delegate = self
     }
     
-    func fetchData() {
-        
+    func fetchData() {        
         do {
             try fetchedResultsController?.performFetch()
         } catch {

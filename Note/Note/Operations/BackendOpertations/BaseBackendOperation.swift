@@ -1,4 +1,5 @@
 import Foundation
+import CoreData
 
 enum NetworkError {
     case unreachable

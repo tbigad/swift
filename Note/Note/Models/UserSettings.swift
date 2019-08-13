@@ -15,6 +15,8 @@ class UserSettings {
     var gitHubToken:String = ""
     var gitHubGistID:String = ""
     let gitHubGistFileName = "ios-course-notes-db"
+    let persistentContainerName = "NoteModel"
+    let modelEntityName = "NoteObject"
     static let shared:UserSettings = UserSettings()
     
     //Private

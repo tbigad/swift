@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import CoreData
 
 class LoadNotesDBOperation: BaseDBOperation {
     
@@ -16,6 +17,20 @@ class LoadNotesDBOperation: BaseDBOperation {
     
     override func main() {
         notebook.loadFromFile()
+        fetchData()
+    }
+    
+    func fetchData(){
+        let request = NSFetchRequest <NoteObject>(entityName: UserSettings.shared.modelEntityName)
+        var notes:[NoteObject]?
+        do {
+            notes = try backgroundContext.fetch(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        for n in notes ?? [NoteObject](){
+            print(n.title)
+        }
         finish()
     }
 }

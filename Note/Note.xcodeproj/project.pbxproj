@@ -12,6 +12,7 @@
 		C0586F4AEE353244B5D3C1A5 /* Pods_NoteUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C36D770BCCC270E435645DB9 /* Pods_NoteUITests.framework */; };
 		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
 		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
+		F32D34B223036AAE00465B80 /* NoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */; };
 		F35C355422F965BE0034E20A /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */; };
 		F35C355522F965BE0034E20A /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */; };
 		F35C355622F965BE0034E20A /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354A22F965BE0034E20A /* BaseDBOperation.swift */; };
@@ -75,6 +76,7 @@
 		E25ED3EA8964A9ED415A00CE /* Pods-Note.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Note.debug.xcconfig"; path = "Target Support Files/Pods-Note/Pods-Note.debug.xcconfig"; sourceTree = "<group>"; };
 		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
 		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
+		F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteModel.xcdatamodel; sourceTree = "<group>"; };
 		F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
 		F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
 		F35C354A22F965BE0034E20A /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 				F3BEE8FC22C12EFC00286D3E /* Note.swift */,
 				F3BEE8FD22C12EFC00286D3E /* NoteExtensions.swift */,
 				F35C356122F968940034E20A /* UserSettings.swift */,
+				F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -542,6 +545,7 @@
 				F3A1C14522DCC62D00B07862 /* DitailsViewController.swift in Sources */,
 				F35C355822F965BE0034E20A /* SaveNoteOperation.swift in Sources */,
 				F3A1C15022E1C19400B07862 /* ImagesListViewController.swift in Sources */,
+				F32D34B223036AAE00465B80 /* NoteModel.xcdatamodeld in Sources */,
 				F35C355422F965BE0034E20A /* SaveNoteDBOperation.swift in Sources */,
 				F35C355A22F965BE0034E20A /* AsyncOperation.swift in Sources */,
 				F35C355922F965BE0034E20A /* LoadNotesOperation.swift in Sources */,
@@ -887,6 +891,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */,
+			);
+			currentVersion = F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */;
+			path = NoteModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F3BEE8C222C12ECF00286D3E /* Project object */;
 }
