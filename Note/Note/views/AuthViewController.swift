@@ -21,7 +21,7 @@ struct GitHubToken: Codable {
 final class AuthViewController: UIViewController {
 
     weak var delegate: AuthViewControllerDelegate?
-
+    var timer:Timer?
     private let webView = WKWebView()
     private var code: String = "" {
         didSet {
@@ -35,8 +35,15 @@ final class AuthViewController: UIViewController {
         setupViews()
 
         guard let request = codeGetRequest else { return }
-        webView.load(request)
         webView.navigationDelegate = self
+        webView.load(request)
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 3.0, repeats: false, block: {_ in
+            DispatchQueue.main.async {
+                self.dismiss(animated: true, completion: nil)
+            }
+        })
+        
     }
     override func viewDidLayoutSubviews() {
         webView.frame = self.view.bounds
@@ -109,5 +116,24 @@ extension AuthViewController: WKNavigationDelegate {
         do {
             decisionHandler(.allow)
         }
+    }
+    private func webView(webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: NSError) {
+        
+        if error.code == -1001 { // TIMED OUT:
+            
+            // CODE to handle TIMEOUT
+            
+        } else if error.code == -1003 { // SERVER CANNOT BE FOUND
+            
+            // CODE to handle SERVER not found
+            
+        } else if error.code == -1100 { // URL NOT FOUND ON SERVER
+            
+            // CODE to handle URL not found
+            
+        }
+    }
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.timer?.invalidate()
     }
 }
