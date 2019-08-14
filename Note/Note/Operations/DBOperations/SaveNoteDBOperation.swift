@@ -11,7 +11,6 @@ class SaveNoteDBOperation: BaseDBOperation {
     
     override func main() {
         notebook.add(note: note)
-        notebook.saveToFile()
         saveNote()
     }
     

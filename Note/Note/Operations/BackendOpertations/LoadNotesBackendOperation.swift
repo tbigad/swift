@@ -56,8 +56,10 @@ class LoadNotesBackendOperation : BaseBackendOperation {
     }
     
     private func success(){
-        result = .success(notes)
+        result = .failure(.unreachable)
         finish()
+//        result = .success(notes)
+//        finish()
     }
     
     override func main() {

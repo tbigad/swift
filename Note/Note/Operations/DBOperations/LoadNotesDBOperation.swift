@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 class LoadNotesDBOperation: BaseDBOperation {
     
@@ -16,7 +17,7 @@ class LoadNotesDBOperation: BaseDBOperation {
     }
     
     override func main() {
-        notebook.loadFromFile()
+        //notebook.loadFromFile()
         fetchData()
     }
     
@@ -28,9 +29,19 @@ class LoadNotesDBOperation: BaseDBOperation {
         } catch {
             print(error.localizedDescription)
         }
+        var notesArray:NoteBook = NoteBook()
         for n in notes ?? [NoteObject](){
-            print(n.title)
+            let color = UIColor().fromHexString(hexString: n.color!)
+            let note:Note = Note(n.title!,
+                                 n.content!,
+                                 Note.Priority.medium,
+                                 n.id!,
+                                 n.destryDate,
+                                 color )
+            
+            notesArray.append(note)
         }
+        notebook.replaseNotes(notes: notesArray)
         finish()
     }
 }

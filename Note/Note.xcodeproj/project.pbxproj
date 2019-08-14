@@ -200,9 +200,9 @@
 		F35C354722F965BE0034E20A /* DBOperations */ = {
 			isa = PBXGroup;
 			children = (
+				F35C354A22F965BE0034E20A /* BaseDBOperation.swift */,
 				F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */,
 				F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */,
-				F35C354A22F965BE0034E20A /* BaseDBOperation.swift */,
 				F35C354B22F965BE0034E20A /* RemoveNoteDBOperation.swift */,
 			);
 			path = DBOperations;

@@ -83,7 +83,10 @@ extension MainViewController : UITableViewDataSource, UITableViewDelegate, Ditai
             self.notesTableView.reloadData()
             let saveNotesOperation = SaveNoteOperation(note: data!, notebook: noteBook, backendQueue: backendOperationQueue, dbQueue: dbOperationQueue)
             saveNotesOperation.completionBlock = {
-                OperationQueue.main.addOperation{ self.notesTableView.reloadData() }
+                OperationQueue.main.addOperation{
+                    unowned let sself = self
+                    sself.notesTableView.reloadData()
+                }
             }
             
             commonQueue.addOperation(saveNotesOperation)
