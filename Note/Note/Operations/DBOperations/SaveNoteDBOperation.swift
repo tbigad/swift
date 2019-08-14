@@ -32,10 +32,11 @@ class SaveNoteDBOperation: BaseDBOperation {
                 }
                 
                 object?.color = self.note.color.toHexString()
-                object?.content = self.note.content
+                object?.text = self.note.content
                 object?.destryDate = self.note.autoRemoveDate
                 object?.id = self.note.uid
                 object?.title = self.note.title
+                object?.priority = 1
                 
             } catch {
                 print(error.localizedDescription)

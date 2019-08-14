@@ -35,7 +35,6 @@ class FileNotebook {
     }
     
     public func saveToFile(){
-        // TODO: move path to init
         guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = docURL.appendingPathComponent("Notes.json")
         
@@ -49,7 +48,6 @@ class FileNotebook {
     }
     
     public func loadFromFile(){
-        // TODO: move path to init
         guard let docURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
         let fileURL = docURL.appendingPathComponent("Notes.json")
         do {

@@ -33,7 +33,7 @@ class LoadNotesDBOperation: BaseDBOperation {
         for n in notes ?? [NoteObject](){
             let color = UIColor().fromHexString(hexString: n.color!)
             let note:Note = Note(n.title!,
-                                 n.content!,
+                                 n.text!,
                                  Note.Priority.medium,
                                  n.id!,
                                  n.destryDate,

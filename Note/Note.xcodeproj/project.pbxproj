@@ -13,6 +13,7 @@
 		F328FF2122D4D41A00A349A0 /* SelectColorButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */; };
 		F328FF2322D4F7E000A349A0 /* ColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F328FF2222D4F7E000A349A0 /* ColorPicker.swift */; };
 		F32D34B223036AAE00465B80 /* NoteModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */; };
+		F32D34B52304B8D100465B80 /* Model.xcmappingmodel in Sources */ = {isa = PBXBuildFile; fileRef = F32D34B42304B8D100465B80 /* Model.xcmappingmodel */; };
 		F35C355422F965BE0034E20A /* SaveNoteDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */; };
 		F35C355522F965BE0034E20A /* LoadNotesDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */; };
 		F35C355622F965BE0034E20A /* BaseDBOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35C354A22F965BE0034E20A /* BaseDBOperation.swift */; };
@@ -77,6 +78,8 @@
 		F328FF2022D4D41A00A349A0 /* SelectColorButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectColorButton.swift; sourceTree = "<group>"; };
 		F328FF2222D4F7E000A349A0 /* ColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPicker.swift; sourceTree = "<group>"; };
 		F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteModel.xcdatamodel; sourceTree = "<group>"; };
+		F32D34B32304B72200465B80 /* NoteModel 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "NoteModel 2.xcdatamodel"; sourceTree = "<group>"; };
+		F32D34B42304B8D100465B80 /* Model.xcmappingmodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcmappingmodel; path = Model.xcmappingmodel; sourceTree = "<group>"; };
 		F35C354822F965BE0034E20A /* SaveNoteDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaveNoteDBOperation.swift; sourceTree = "<group>"; };
 		F35C354922F965BE0034E20A /* LoadNotesDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadNotesDBOperation.swift; sourceTree = "<group>"; };
 		F35C354A22F965BE0034E20A /* BaseDBOperation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseDBOperation.swift; sourceTree = "<group>"; };
@@ -296,6 +299,7 @@
 				F3BEE8FD22C12EFC00286D3E /* NoteExtensions.swift */,
 				F35C356122F968940034E20A /* UserSettings.swift */,
 				F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */,
+				F32D34B42304B8D100465B80 /* Model.xcmappingmodel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -551,6 +555,7 @@
 				F35C355922F965BE0034E20A /* LoadNotesOperation.swift in Sources */,
 				F35C355622F965BE0034E20A /* BaseDBOperation.swift in Sources */,
 				F3BEE8CE22C12ECF00286D3E /* AppDelegate.swift in Sources */,
+				F32D34B52304B8D100465B80 /* Model.xcmappingmodel in Sources */,
 				F3A1C14322DC970C00B07862 /* MainViewController.swift in Sources */,
 				F3A1C14C22E1BB3300B07862 /* ImagesCollectionViewCells.swift in Sources */,
 				F35C356422F9B7E10034E20A /* GitHubGistsStruct.swift in Sources */,
@@ -896,9 +901,10 @@
 		F32D34B023036AAE00465B80 /* NoteModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				F32D34B32304B72200465B80 /* NoteModel 2.xcdatamodel */,
 				F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */,
 			);
-			currentVersion = F32D34B123036AAE00465B80 /* NoteModel.xcdatamodel */;
+			currentVersion = F32D34B32304B72200465B80 /* NoteModel 2.xcdatamodel */;
 			path = NoteModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
