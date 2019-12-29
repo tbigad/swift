@@ -203,7 +203,6 @@ extension ViewController : NSFetchedResultsControllerDelegate {
             tableView.insertRows(at: [newIndexPath!], with: .automatic)
         case .update:
             tableView.reloadRows(at: [indexPath!], with: .automatic)
-            
         default: break
             
         }
@@ -221,6 +220,5 @@ extension TimeInterval{
         let hours = (time / 3600)
         
         return String(format: "%0.2d:%0.2d:%0.2d.%0.3d",hours,minutes,seconds,ms)
-        
     }
 }
