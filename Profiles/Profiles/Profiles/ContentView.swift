@@ -19,7 +19,7 @@ struct ContentView: View {
                 }
             }
             .navigationBarTitle("People")
-            .navigationBarItems(trailing:NavigationLink(destination: Text("Create"), label: {
+            .navigationBarItems(trailing:NavigationLink(destination: NewPerson(), label: {
                 Image(systemName: "plus")
                 Text("Add")
             }))
