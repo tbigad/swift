@@ -6,7 +6,7 @@
 //  Copyright © 2019 Pavel N. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
 struct Person : Identifiable {
     var id = UUID()
@@ -29,6 +29,10 @@ struct Person : Identifiable {
         return df.string(from: self.birthDate)
     }
     
+    var image:Image {
+        return Image(uiImage: UIImage(data: self.photoData)!)
+    }
+    
     //MARK:basic
     let name:String
     let secondName:String
@@ -46,6 +50,6 @@ struct Person : Identifiable {
     let workRemotely:Bool
 
     //MARK: additional
-    let photo:Data
     let aboutMe:String
+    let photoData:Data
 }

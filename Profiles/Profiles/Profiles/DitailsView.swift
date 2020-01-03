@@ -34,7 +34,7 @@ struct GeneralInformationView: View {
     var item:Person
     var body: some View {
         HStack {
-            Image(uiImage: UIImage(data: item.photo)!)
+            item.image
                 .resizable()
                 .scaledToFit()
                 .frame(minWidth: 0, idealWidth: 150, maxWidth: 150, minHeight: 0, idealHeight: 150, maxHeight: 150, alignment: .trailing)
