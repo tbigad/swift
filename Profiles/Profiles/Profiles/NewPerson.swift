@@ -9,12 +9,21 @@
 import SwiftUI
 
 struct NewPerson: View {
-    
+
+    var dateComponents:DatePicker.Components = [.date]
     @EnvironmentObject var store:PersonsStore
-    
+    var person = Person()
     var body: some View {
-        VStack {
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        List {
+            HStack {
+                TextField("Name", text: person.$name)
+                TextField("SecondName", text: person.$secondName)
+            }
+            TextField("e-mail", text: person.$email)
+            TextField("Phone number", text: person.$phoneNumber)
+            TextField("city", text: person.$city)
+            DatePicker(selection: person.$birthDate, displayedComponents: dateComponents, label: { Text("") })
+            
         }
     }
 }

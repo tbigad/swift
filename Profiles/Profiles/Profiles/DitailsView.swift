@@ -26,7 +26,7 @@ struct DitailsView: View {
 
 struct DitailsView_Previews: PreviewProvider {
     static var previews: some View {
-        DitailsView(item: testStore.items[0])
+        DitailsView(item: PersonsStore().items[0])
     }
 }
 

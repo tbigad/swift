@@ -8,19 +8,19 @@
 
 import SwiftUI
 
-struct Person : Identifiable {
+final class Person : Identifiable {
     var id = UUID()
     
     enum Specialization:String {
-        case Backend = "Backend", Frontent = "Frontent", Mobile = "Mobile", QA = "QA", Design = "Design", Support = "Support", Marketing = "Marketing", Sales = "Sales"
+        case Backend = "Backend", Frontent = "Frontent", Mobile = "Mobile", QA = "QA", Design = "Design", Support = "Support", Marketing = "Marketing", Sales = "Sales", none
     }
     
     enum Qualification:String {
-        case intern = "Intern", junior = "Junior", middle = "Middle", senior = "Senior", lead = "Lead"
+        case intern = "Intern", junior = "Junior", middle = "Middle", senior = "Senior", lead = "Lead", none
     }
     
     enum JobStatus:String {
-        case looking = "Looking", atWork = "At Work", notLooking = "Not Looking",notWork = "Not Work"
+        case looking = "Looking", atWork = "At Work", notLooking = "Not Looking",notWork = "Not Work", none
     }
     
     func getBirthDateString() -> String {
@@ -34,22 +34,22 @@ struct Person : Identifiable {
     }
     
     //MARK:basic
-    let name:String
-    let secondName:String
-    let email:String
-    let birthDate:Date
-    let phoneNumber:String
-    let city:String
+    @State var name:String = ""
+    @State var secondName:String = ""
+    @State var email:String = ""
+    @State var birthDate:Date = Date()
+    @State var phoneNumber:String = ""
+    @State var city:String = ""
 
     //MARK:about job information
-    let specialization:Specialization
-    let qualification:Qualification
-    let status:JobStatus
-    let hoursOfWork:Int
-    let salary:Float
-    let workRemotely:Bool
+    @State var specialization:Specialization = .none
+    @State var qualification:Qualification = .none
+    @State var status:JobStatus = .none
+    @State var hoursOfWork:Int = 0
+    @State var salary:Float = 0.0
+    @State var workRemotely:Bool = false
 
     //MARK: additional
-    let aboutMe:String
-    let photoData:Data
+    @State var aboutMe:String = ""
+    @State var photoData:Data = Data()
 }
