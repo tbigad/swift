@@ -9,16 +9,12 @@
 import SwiftUI
 
 struct NewPerson: View {
-    @State var str:String = ""
-    @State var textVisible = true
     
-    var person = Person()
+    @EnvironmentObject var store:PersonsStore
+    
     var body: some View {
         VStack {
-            if textVisible {
-                Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-            }
-            TextField("Name", text: $str)
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
         }
     }
 }

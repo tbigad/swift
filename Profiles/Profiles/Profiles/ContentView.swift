@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView: View {
-    @ObservedObject var store = testStore
+    @EnvironmentObject var store:PersonsStore
     
     var body: some View {
         NavigationView {
