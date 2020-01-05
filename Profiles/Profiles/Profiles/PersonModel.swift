@@ -29,9 +29,7 @@ final class Person : Identifiable {
         return df.string(from: self.birthDate)
     }
     
-    var image:Image {
-        return Image(uiImage: UIImage(data: self.photoData)!)
-    }
+    @State var image:Image? = Image("defaultAvatar")
     
     //MARK:basic
     @State var name:String = ""
