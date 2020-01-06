@@ -32,7 +32,7 @@ final class Person : Identifiable {
         return df.string(from: self.birthDate)
     }
     
-    @State var image:Image = Image("defaultAvatar")
+    var image:Image = Image("defaultAvatar")
     
     //MARK:basic
     var name:String = ""
@@ -52,5 +52,4 @@ final class Person : Identifiable {
 
     //MARK: additional
     var aboutMe:String = ""
-    var photoData:Data = Data()
 }
