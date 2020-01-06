@@ -10,14 +10,32 @@ import SwiftUI
 
 struct NewPerson: View {
     @EnvironmentObject var store:PersonsStore
+    @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var person = Person()
+    @State var aboutMeText:String = ""
     var body: some View {
         List {
-            //BaseInfo(person: person)
-            Divider()
             ImagePickerButton()
-            
+            BaseInfo(person: person)
+            AboutJobInfo()
+            VStack {
+                Text("About me")
+                TextField("About me", text: $aboutMeText)
+                    .lineLimit(4)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+            }
+            Button(action: {
+                self.saveAndPop()
+            }) {
+                Text("Save")
+            }.buttonStyle(BorderlessButtonStyle())
         }
+        
+    }
+    
+    func saveAndPop(){
+        store.items.append(person)
+        presentationMode.wrappedValue.dismiss()
     }
 }
 
@@ -54,7 +72,7 @@ struct BaseInfo: View {
 struct ImagePickerButton: View {
     @State var showImagePicker: Bool = false
     @State var image: Image = Image("defaultAvatar")
-
+    
     var body: some View {
         HStack(alignment: .center) {
             VStack {
@@ -70,6 +88,57 @@ struct ImagePickerButton: View {
             }
             .sheet(isPresented: $showImagePicker) {
                 ImagePicker(image: self.$image)
+            }
+        }
+    }
+}
+
+struct AboutJobInfo: View {
+    @State var selectedQualification = "none"
+    @State var selectedSpecialization = "none"
+    @State var selectedJobStatus = "none"
+    @State var hourInWeak:Int = 0
+    @State var workRemote:Bool = false
+    @State var someNumber = 123.0
+    
+    var salaryProxy: Binding<String> {
+        Binding<String>(
+            get: { String(format: "%.02f", Double(self.someNumber)) },
+            set: {
+                if let value = NumberFormatter().number(from: $0) {
+                    self.someNumber = value.doubleValue
+                }
+        }
+        )
+    }
+    
+    var body: some View {
+        VStack {
+                Picker(selection: $selectedQualification, label: Text("Qualification")) {
+                    ForEach(Person.Qualification.allCases) { item in
+                        Text(item.rawValue)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                Picker(selection: $selectedSpecialization, label: Text("Specialization")) {
+                    ForEach(Person.Specialization.allCases) { item in
+                        Text(item.rawValue)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+                Picker(selection: $selectedJobStatus, label: Text("Job Status")) {
+                    ForEach(Person.JobStatus.allCases) { item in
+                        Text(item.rawValue)
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+            
+            Stepper(value: self.$hourInWeak, in: 0...16) {
+                Text("Hour in week \(hourInWeak)")
+            }
+            HStack {
+                Text("Salary ")
+                TextField("Salary", text: salaryProxy)
+            }
+            Toggle(isOn: $workRemote) {
+                Text("Work remotely")
             }
         }
     }

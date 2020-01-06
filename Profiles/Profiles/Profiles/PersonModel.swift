@@ -11,15 +11,18 @@ import SwiftUI
 final class Person : Identifiable {
     var id = UUID()
     
-    enum Specialization:String {
+    enum Specialization:String,CaseIterable,Identifiable {
+        var id: String { rawValue }
         case Backend = "Backend", Frontent = "Frontent", Mobile = "Mobile", QA = "QA", Design = "Design", Support = "Support", Marketing = "Marketing", Sales = "Sales", none
     }
     
-    enum Qualification:String {
+    enum Qualification:String,CaseIterable,Identifiable {
+        var id: String { rawValue }
         case intern = "Intern", junior = "Junior", middle = "Middle", senior = "Senior", lead = "Lead", none
     }
     
-    enum JobStatus:String {
+    enum JobStatus:String,CaseIterable,Identifiable {
+        var id: String { rawValue }
         case looking = "Looking", atWork = "At Work", notLooking = "Not Looking",notWork = "Not Work", none
     }
     
