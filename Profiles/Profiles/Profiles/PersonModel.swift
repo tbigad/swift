@@ -32,25 +32,25 @@ final class Person : Identifiable {
         return df.string(from: self.birthDate)
     }
     
-    @State var image:Image? = Image("defaultAvatar")
+    @State var image:Image = Image("defaultAvatar")
     
     //MARK:basic
-    @State var name:String = ""
-    @State var secondName:String = ""
-    @State var email:String = ""
-    @State var birthDate:Date = Date()
-    @State var phoneNumber:String = ""
-    @State var city:String = ""
+    var name:String = ""
+    var secondName:String = ""
+    var email:String = ""
+    var birthDate:Date = Date()
+    var phoneNumber:String = ""
+    var city:String = ""
 
     //MARK:about job information
-    @State var specialization:Specialization = .none
-    @State var qualification:Qualification = .none
-    @State var status:JobStatus = .none
-    @State var hoursOfWork:Int = 0
-    @State var salary:Float = 0.0
-    @State var workRemotely:Bool = false
+    var specialization:Specialization = .none
+    var qualification:Qualification = .none
+    var status:JobStatus = .none
+    var hoursOfWork:Int = 0
+    var salary:Float = 0.0
+    var workRemotely:Bool = false
 
     //MARK: additional
-    @State var aboutMe:String = ""
-    @State var photoData:Data = Data()
+    var aboutMe:String = ""
+    var photoData:Data = Data()
 }

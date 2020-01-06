@@ -37,7 +37,7 @@ struct PersonCell: View {
     var item:Person
     var body: some View {
         HStack {
-            item.image?.resizable().frame(width: 50, height: 50).clipShape(Circle())
+            item.image.resizable().frame(width: 50, height: 50).clipShape(Circle())
             VStack(alignment: .leading) {
                 Text("\(item.name) \(item.secondName)")
                 Text("\(item.status.rawValue), \(item.qualification.rawValue), \(item.specialization.rawValue)")

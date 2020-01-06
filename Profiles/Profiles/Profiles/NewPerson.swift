@@ -11,17 +11,32 @@ import SwiftUI
 struct NewPerson: View {
     @EnvironmentObject var store:PersonsStore
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
-    var person = Person()
+    
+    @State var name:String = ""
+    @State var secondName:String = ""
+    @State var email:String = ""
+    @State var phoneNumber:String = ""
+    @State var city:String = ""
+    @State var birthDate:Date = Date()
     @State var aboutMeText:String = ""
+    
+    @State var selectedQualification:String = "none"
+    @State var selectedSpecialization:String = "none"
+    @State var selectedJobStatus:String = "none"
+    @State var hourInWeak:Int = 0
+    @State var workRemote:Bool = false
+    @State var salary:Float = 123.0
+    
+    @State var image = Image("defaultAvatar")
+    
     var body: some View {
         List {
-            ImagePickerButton()
-            BaseInfo(person: person)
-            AboutJobInfo()
+            ImagePickerButton(image: $image)
+            BaseInfo(name: $name, secondName: $secondName, email: $email, phoneNumber: $phoneNumber, city: $city, birthDate: $birthDate)
+            AboutJobInfo(selectedQualification: $selectedQualification, selectedSpecialization: $selectedSpecialization, selectedJobStatus: $selectedJobStatus, hourInWeak: $hourInWeak, workRemote: $workRemote, salaryNumber: $salary)
             VStack {
                 Text("About me")
                 TextField("About me", text: $aboutMeText)
-                    .lineLimit(4)
                     .textFieldStyle(RoundedBorderTextFieldStyle())
             }
             Button(action: {
@@ -34,6 +49,21 @@ struct NewPerson: View {
     }
     
     func saveAndPop(){
+        let person = Person()
+        person.image = self.image
+        person.name = self.name
+        person.secondName = self.secondName
+        person.email = self.email
+        person.phoneNumber = self.phoneNumber
+        person.city = self.city
+        person.birthDate = self.birthDate
+        person.aboutMe = self.aboutMeText
+        person.qualification = Person.Qualification(rawValue: self.selectedQualification)!
+        person.specialization = Person.Specialization(rawValue: self.selectedSpecialization)!
+        person.status = Person.JobStatus(rawValue:self.selectedJobStatus)!
+        person.hoursOfWork = self.hourInWeak
+        person.workRemotely = self.workRemote
+        person.salary = self.salary
         store.items.append(person)
         presentationMode.wrappedValue.dismiss()
     }
@@ -50,31 +80,38 @@ struct NewPerson_Previews: PreviewProvider {
 
 struct BaseInfo: View {
     var dateComponents:DatePicker.Components = [.date]
-    var person:Person
+    
+    @Binding var name:String
+    @Binding var secondName:String
+    @Binding var email:String
+    @Binding var phoneNumber:String
+    @Binding var city:String
+    @Binding var birthDate:Date
+    
     var body: some View {
         Section(header: Text("Basic")) {
             HStack {
-                TextField("Name", text: person.$name)
-                TextField("SecondName", text: person.$secondName)
+                TextField("Name", text: $name)
+                TextField("SecondName", text: $secondName)
             }
-            TextField("e-mail", text: person.$email)
+            TextField("e-mail", text: $email)
             VStack{
                 Text("Date of birthd")
-                DatePicker(selection: person.$birthDate, displayedComponents: dateComponents, label: { Text("") })
+                DatePicker(selection: $birthDate, displayedComponents: dateComponents, label: { Text("") })
             }
             
-            TextField("Phone number", text: person.$phoneNumber)
-            TextField("city", text: person.$city)
+            TextField("Phone number", text: $phoneNumber)
+            TextField("city", text: $city)
         }
     }
 }
 
 struct ImagePickerButton: View {
     @State var showImagePicker: Bool = false
-    @State var image: Image = Image("defaultAvatar")
+    @Binding var image: Image
     
     var body: some View {
-        HStack(alignment: .center) {
+        HStack {
             VStack {
                 Button(action: {
                     withAnimation {
@@ -94,19 +131,19 @@ struct ImagePickerButton: View {
 }
 
 struct AboutJobInfo: View {
-    @State var selectedQualification = "none"
-    @State var selectedSpecialization = "none"
-    @State var selectedJobStatus = "none"
-    @State var hourInWeak:Int = 0
-    @State var workRemote:Bool = false
-    @State var someNumber = 123.0
+    @Binding var selectedQualification:String
+    @Binding var selectedSpecialization:String
+    @Binding var selectedJobStatus:String
+    @Binding var hourInWeak:Int
+    @Binding var workRemote:Bool
+    @Binding var salaryNumber:Float
     
     var salaryProxy: Binding<String> {
         Binding<String>(
-            get: { String(format: "%.02f", Double(self.someNumber)) },
+            get: { String(format: "%.02f", Float(self.salaryNumber)) },
             set: {
                 if let value = NumberFormatter().number(from: $0) {
-                    self.someNumber = value.doubleValue
+                    self.salaryNumber = value.floatValue
                 }
         }
         )
